@@ -1,4 +1,14 @@
 Rails.application.routes.draw do
+  get 'bookings/index'
+
+  get 'timeslots/index'
+
+  get 'users/index'
+
+  get 'venues/index'
+
+  get 'acts/index'
+
   get 'events/index'
 
   devise_for :users
