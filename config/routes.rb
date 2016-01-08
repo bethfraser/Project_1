@@ -16,6 +16,9 @@ Rails.application.routes.draw do
   resources :acts
   resources :venues
   resources :timeslots
+  resources :bookings
+
+  resources :users
 
   root to: 'events#index'
   # The priority is based upon order of creation: first created -> highest priority.

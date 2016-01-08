@@ -1,0 +1,12 @@
+
+<h3><%= @event.name %></h3>
+<%= @event.description %><br>
+  
+  <% @event.acts.each do |act | %>
+    <h4><%= act.name %></h4>
+    Times:<br>
+    <% act.timeslots.each do |timeslot| %>
+      <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %>
+    <% end %>
+    <br>
+  <% end %>
