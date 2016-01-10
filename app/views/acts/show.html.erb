@@ -6,28 +6,41 @@
 <%= @act.description %><br>
 Times:<br>
 <% @act.timeslots.order(:start_time).each do |timeslot| %>
-  <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> <%= link_to 'Edit', edit_timeslot_path(timeslot) %> - 
+<%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> 
+
+<% if can? :update, Timeslot %><%= link_to 'Edit', edit_timeslot_path(timeslot) %> - 
+<% end %>
+<% if can? :delete, Timeslot %>
 <%= link_to 'Delete', timeslot_path(timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %>
+<% end %>
 <%= form_for(@booking) do |f| %> 
 <% if @booking.errors.any? %>
-  <div id="error_explanation">
-    <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this act from being saved:</h2>
+<div id="error_explanation">
+  <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this act from being saved:</h2>
 
-    <ul>
+  <ul>
     <% @booking.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
+    <li><%= message %></li>
     <% end %>
-    </ul>
-  </div>
+  </ul>
+</div>
 <% end %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <%= f.hidden_field :timeslot_id, value: timeslot.id %>
-    <%= f.submit 'Add to My Schedule' %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :timeslot_id, value: timeslot.id %>
+<%= f.submit 'Add to My Schedule' %>
 <% end %><br>
 
 <% end %>
 
 <br><br>
-
+<% if can? :update, Act %>
 <%= link_to "Edit Act Profile", edit_act_path(@act) %> - 
+<% end %>
+<% if can? :create, Timeslot %>
 <%= link_to "Add Performance Times", new_timeslot_path %> 
+<% end %>
+
+
+
+
+

@@ -8,11 +8,21 @@ Location:<br>
 <%= @venue.location %><br>
 Times:<br>
 <% @timeslots.each do |timeslot| %>
-  <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.act.name %> <%= link_to 'Edit', edit_timeslot_path(timeslot) %> - 
-<%= link_to 'Delete', timeslot_path(timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %><br>
+  <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.act.name %> 
+  <% if can? :update, Timeslot %><%= link_to 'Edit', edit_timeslot_path(timeslot) %> - 
+  <% end %>
+  <% if can? :delete, Timeslot %>
+  <%= link_to 'Delete', timeslot_path(timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %>
+  <% end %>
+
+<br>
 <% end %>
 
 <br><br>
 
-<%= link_to "Edit Stage Profile", edit_venue_path(@venue) %>- 
+<% if can? :update, Venue %>
+<%= link_to "Edit Stage Profile", edit_venue_path(@venue) %> -
+<% end %> 
+<% if can? :create, Timeslot %>
 <%= link_to "Add Performance Times", new_timeslot_path %> 
+<% end %>

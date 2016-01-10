@@ -1,9 +1,12 @@
 
 <h3><%= @event.name %></h3>
 <%= @event.description %><br>
-  
+  <% if can? :create, Act %>
   <%= link_to 'Add Act', new_act_path %>
+  <% end %>
+  <% if can? :create, Venue %>
   <%= link_to 'Add Stage', new_venue_path %>
+  <% end %>
   <%= link_to 'Acts A-Z', acts_path %>
   <%= link_to 'Stages', venues_path %>
   <% @event.acts.each do |act | %>

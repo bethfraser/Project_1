@@ -22,4 +22,5 @@ class Booking < ActiveRecord::Base
       end
     end
   end
+  
 end
