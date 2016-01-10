@@ -2,11 +2,24 @@
 <h3><%= @event.name %></h3>
 <%= @event.description %><br>
   
+  <%= link_to 'Add Act', new_act_path %>
+  <%= link_to 'Add Stage', new_venue_path %>
+  <%= link_to 'Acts A-Z', acts_path %>
+  <%= link_to 'Stages', venues_path %>
   <% @event.acts.each do |act | %>
-    <h4><%= act.name %></h4>
+    <h4><%= link_to act.name, act_path(act) %></h4>
     Times:<br>
     <% act.timeslots.each do |timeslot| %>
       <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %>
+
+      <%= form_for(@booking) do |f| %> 
+          <%= f.hidden_field :user_id, value: current_user.id %>
+          <%= f.hidden_field :timeslot_id, value: timeslot.id %>
+          <%= f.submit 'Add to My Schedule' %>
+
+      <% end %>
+      <br>
     <% end %>
     <br>
   <% end %>
+

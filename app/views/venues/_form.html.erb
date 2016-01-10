@@ -1,0 +1,30 @@
+<%= form_for(@venue) do |f| %>
+<% if @venue.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@venue.errors.count, "error") %> prohibited this stage from being saved:</h2>
+
+  <ul>
+    <% @venue.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= f.label :event_id, 'Event' %>
+<%= f.select :event_id, Event.all.collect { |e| [ e.name, e.id ] } %><br>
+
+<%= f.label :name %><br>
+<%= f.text_field :name %><br>
+
+<%= f.label :venue_image, 'Image URL' %><br>
+<%= f.text_field :venue_image %><br>
+
+<%= f.label :description, 'Description' %><br>
+<%= f.text_area :description %><br>
+
+<%= f.label :location, 'Location' %><br>
+<%= f.text_field :location %><br>
+
+<%= f.submit 'Save' %>
+
+<% end %>

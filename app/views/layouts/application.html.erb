@@ -3,12 +3,13 @@
 <head>
   <title>EventApp</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" type="text/css" href="normalize.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
+<header>
 
   <div class="login">
     <% if current_user %>
@@ -20,7 +21,21 @@
     <%= link_to 'Register', new_user_registration_path %>
     <% end %>
   </div>
-<%= yield %>
 
+  <nav>
+  <ul>
+  <li><%= link_to 'Home', event_path(1) %></li>
+  </ul>
+  </nav>
+
+
+</header>
+
+<div class="main">
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<%= yield %>
+</div>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<%= form_for(@act) do |f| %>
+    <% if @act.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@act.errors.count, "error") %> prohibited this act from being saved:</h2>
+
+        <ul>
+        <% @act.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <%= f.label :event_id, 'Event' %>
+    <%= f.select :event_id, Event.all.collect { |e| [ e.name, e.id ] } %><br>
+
+    <%= f.label :name %><br>
+    <%= f.text_field :name %><br>
+  
+    <%= f.label :act_image, 'Image URL' %><br>
+    <%= f.text_field :act_image %><br>
+
+    <%= f.label :description, 'Bio' %><br>
+    <%= f.text_area :description %><br>
+
+    <%= f.submit 'Save' %>
+
+<% end %>

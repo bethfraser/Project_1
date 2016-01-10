@@ -1,0 +1,8 @@
+header, .main {
+  padding: 10px 10px;
+}
+
+.field_with_errors {
+  display: inline-block;
+  color: red;
+}

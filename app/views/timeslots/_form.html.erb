@@ -1,0 +1,29 @@
+<%= form_for(@timeslot) do |f| %>
+<% if @timeslot.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@timeslot.errors.count, "error") %> prohibited this performance slot from being saved:</h2>
+
+    <ul>
+    <% @timeslot.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+<%= f.label :act_id, 'Act' %>
+<%= f.select :act_id, Act.all.collect { |a| [ a.name, a.id ] } %><br>
+<%= f.label :venue_id, 'Stage' %>
+<%= f.select :venue_id, Venue.all.collect { |v| [ v.name, v.id ] } %><br>
+
+<%= f.label :start_time %><br>
+<%= f.datetime_select :start_time, :minute_step => 5 %><br>
+
+<%= f.label :end_time %><br>
+<%= f.datetime_select :end_time, :minute_step => 5 %><br>
+
+<%= f.label :capacity %><br>
+<%= f.text_field :capacity %><br>
+
+<%= f.submit 'Save' %>
+
+<% end %>
