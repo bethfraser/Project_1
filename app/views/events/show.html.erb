@@ -13,6 +13,17 @@
       <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %>
 
       <%= form_for(@booking) do |f| %> 
+      <% if @booking.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this act from being saved:</h2>
+
+          <ul>
+          <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :timeslot_id, value: timeslot.id %>
           <%= f.submit 'Add to My Schedule' %>

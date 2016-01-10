@@ -8,8 +8,17 @@ class BookingsController < ApplicationController
   end
 
   def create 
-    booking = Booking.create(booking_params)
-    redirect_to users_path
+    @booking = Booking.new(booking_params)
+    
+    respond_to do |format|
+      if @booking.save
+        format.html { redirect_to users_path, notice: 'Added to your schedule!' }
+        # format.json { render :show, status: :created, location: @recipe }
+      else
+        format.html { redirect_to :back, notice: @booking.errors.full_messages.join(", ") }
+        # format.json { render json: @recipe.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def destroy
