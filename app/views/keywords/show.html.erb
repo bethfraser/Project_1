@@ -1,0 +1,5 @@
+<h1><%= @keyword.name.capitalize %> acts</h1>
+
+<% @keyword.acts.each do |act| %>
+  <%= link_to act.name, act_path(act) %><br>
+  <% end %> 

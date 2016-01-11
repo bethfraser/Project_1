@@ -2,7 +2,7 @@
 
 <%= link_to 'Add Keyword', new_keyword_path %><br><br>
 <% @keywords.each do |keyword| %>
-<%= keyword.name.capitalize %> 
+<%= link_to keyword.name.capitalize, keyword_path(keyword) %> 
 <%= link_to 'Edit', edit_keyword_path(keyword) %>
 <%= link_to 'Delete', keyword_path(keyword), method: :delete, data: {confirm: 'Are you sure you want to delete this keyword?'} %>
 <br>

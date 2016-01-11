@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   get 'keyword/new'
 
+  get 'keywords/filter', to: 'keywords#filter'
+
   devise_for :users
   resources :events
   resources :acts

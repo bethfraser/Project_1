@@ -7,6 +7,15 @@ class KeywordsController < ApplicationController
     @keyword = Keyword.find(params[:id])
   end
 
+  def show
+    @keyword = Keyword.find(params[:id])
+  end
+
+  def filter
+    @keyword = Keyword.find(params[:keyword_select])
+    redirect_to keyword_path(@keyword)
+  end
+
   def update
     keyword = Keyword.find(params[:id])
     keyword.update(keyword_params)

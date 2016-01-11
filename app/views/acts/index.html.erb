@@ -2,6 +2,17 @@
 <% if can? :create, Act %>
 <%= link_to 'Add Act', new_act_path %><br><br>
 <% end %>
+
+Filter by tag:<br> 
+
+<%= form_tag({controller: "keywords", action: "filter"}, method: "get") do %>
+<%= select_tag(:keyword_select, options_for_select(Keyword.all.collect { |a| [ a.name, a.id ] })) %>
+<%= submit_tag %>
+<% end %>
+
+<br><br>
+
+
 <% @acts.each do |act| %>
 <%= link_to act.name, act_path(act) %>
 <% if can? :update, Act %>

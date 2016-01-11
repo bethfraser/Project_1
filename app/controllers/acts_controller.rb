@@ -2,6 +2,7 @@ class ActsController < ApplicationController
   
   def index
     @acts = Act.all.order(:name)
+    @keywords = Keyword.all
   end
 
   def show 
