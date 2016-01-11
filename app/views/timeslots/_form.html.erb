@@ -16,10 +16,10 @@
 <%= f.select :venue_id, Venue.all.collect { |v| [ v.name, v.id ] } %><br>
 
 <%= f.label :start_time %><br>
-<%= f.datetime_select :start_time, :minute_step => 5 %><br>
+<%= f.datetime_select :start_time, :minute_step => 5, default: { month: 6, day: 10 } %><br>
 
 <%= f.label :end_time %><br>
-<%= f.datetime_select :end_time, :minute_step => 5 %><br>
+<%= f.datetime_select :end_time, :minute_step => 5, default: { month: 6, day: 10 } %><br>
 
 <%= f.label :capacity %><br>
 <%= f.text_field :capacity %><br>

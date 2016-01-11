@@ -1,0 +1,68 @@
+
+
+header, .main {
+  padding: 10px 10px;
+}
+
+.field_with_errors {
+  display: inline-block;
+  color: red;
+}
+
+li {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1px;
+}
+
+ul.days {
+  text-align: center;
+}
+
+li.venue_name {
+  width: 100%;
+  text-align: center;
+}
+
+ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+ul.timetable {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+
+.schedule, .unschedule {
+background-repeat: no-repeat;
+background-color: white;
+border: 0;
+padding: 0;
+min-width: 16px;
+height: 16px;
+}
+
+.schedule:hover {
+  background-image: url(<%= asset_path 'rate.png' %>);
+}
+
+.schedule {
+  background-image: url(<%= asset_path 'bookmark45.png' %>);
+}
+
+.unschedule {
+  background-image: url(<%= asset_path 'rate.png' %>);
+}
+
+.unschedule:hover {
+  background-image: url(<%= asset_path 'bookmark45.png' %>);
+}
+
+.schedule_form, form.button_to {
+  display: inline-block;
+}

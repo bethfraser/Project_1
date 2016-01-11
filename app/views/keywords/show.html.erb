@@ -3,3 +3,6 @@
 <% @keyword.acts.each do |act| %>
   <%= link_to act.name, act_path(act) %><br>
   <% end %> 
+
+  <br>
+  <%= link_to 'Back', :back %>

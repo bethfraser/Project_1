@@ -7,7 +7,7 @@ Filter by tag:<br>
 
 <%= form_tag({controller: "keywords", action: "filter"}, method: "get") do %>
 <%= select_tag(:keyword_select, options_for_select(Keyword.all.collect { |a| [ a.name, a.id ] })) %>
-<%= submit_tag %>
+<%= submit_tag(value = 'Go') %>
 <% end %>
 
 <br><br>

@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     
     respond_to do |format|
       if @booking.save
-        format.html { redirect_to users_path, notice: 'Added to your schedule!' }
+        format.html { redirect_to event_path(Event.first), notice: 'Added to your schedule!' }
         # format.json { render :show, status: :created, location: @recipe }
       else
         format.html { redirect_to :back, notice: @booking.errors.full_messages.join(", ") }
@@ -24,7 +24,7 @@ class BookingsController < ApplicationController
   def destroy
     booking = Booking.find(params[:id])
     booking.destroy
-    redirect_to(users_path)
+    redirect_to(event_path(Event.first))
   end
 
 
