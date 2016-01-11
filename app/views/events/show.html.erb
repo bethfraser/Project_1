@@ -14,9 +14,9 @@
   <%= link_to 'Stages', venues_path %>
   <br><br>
 <ul class="timetable">
-<li class="date"><h1>Friday</h1></li>
-<li class="date"><h1>Saturday</h1></li>
-<li class="date"><h1>Sunday</h1></li>
+<li class="date"><h1>Friday</h1>June 10th</li>
+<li class="date"><h1>Saturday</h1>June 11th</li>
+<li class="date"><h1>Sunday</h1>June 12th</li>
   <% @event.venues.each do |venue| %>
 
 
@@ -32,8 +32,12 @@
     <li><% days.each do |day| %>
     <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
     
+    <% if timeslot.act.act_image != "" %>
+    <%= image_tag(timeslot.act.act_image, class: "timetable_image") %><br>
+    <% else %>
     <h3><%= timeslot.act.name %></h3>
-      <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>
+    <% end %>
+      <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>
 
       <% if current_user.timeslots.find_by_id(timeslot.id) != nil %>
   
