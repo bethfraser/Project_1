@@ -3,7 +3,11 @@
 <% if @act.act_image %>
 <%= image_tag(@act.act_image) %><br>
 <% end %>
-<%= @act.description %><br>
+<%= @act.description %><br><br>
+Tags: <br>
+<% @act.keywords.each do |keyword| %>
+<%= keyword.name %>
+<% end %><br>
 Times:<br>
 <% @act.timeslots.order(:start_time).each do |timeslot| %>
 <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> 
@@ -13,6 +17,7 @@ Times:<br>
 <% if can? :delete, Timeslot %>
 <%= link_to 'Delete', timeslot_path(timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %>
 <% end %>
+
 <%= form_for(@booking) do |f| %> 
 <% if @booking.errors.any? %>
 <div id="error_explanation">

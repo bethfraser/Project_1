@@ -1,15 +1,11 @@
 Rails.application.routes.draw do
-  get 'bookings/index'
 
-  get 'timeslots/index'
 
-  get 'users/index'
+  get 'keyword/index'
 
-  get 'venues/index'
+  get 'keyword/edit'
 
-  get 'acts/index'
-
-  get 'events/index'
+  get 'keyword/new'
 
   devise_for :users
   resources :events
@@ -19,6 +15,7 @@ Rails.application.routes.draw do
   resources :bookings
 
   resources :users
+  resources :keywords
 
   root to: 'events#index'
   # The priority is based upon order of creation: first created -> highest priority.

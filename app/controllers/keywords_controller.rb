@@ -1,0 +1,37 @@
+class KeywordsController < ApplicationController
+  def index
+    @keywords = Keyword.all
+  end
+
+  def edit
+    @keyword = Keyword.find(params[:id])
+  end
+
+  def update
+    keyword = Keyword.find(params[:id])
+    keyword.update(keyword_params)
+    redirect_to keywords_path
+  end
+
+  def new
+    @keyword = Keyword.new
+  end
+
+  def create
+    Keyword.create(keyword_params)
+    redirect_to keywords_path
+  end
+
+  def destroy
+    keyword = Keyword.find(params[:id])
+    keyword.destroy
+    redirect_to keywords_path
+  end
+
+  private
+
+  def keyword_params
+    params.require(:keyword).permit(:name)
+  end
+
+end

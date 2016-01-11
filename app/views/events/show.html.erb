@@ -7,6 +7,9 @@
   <% if can? :create, Venue %>
   <%= link_to 'Add Stage', new_venue_path %>
   <% end %>
+  <% if can? :create, Keyword %>
+  <%= link_to 'Manage Keywords', keywords_path %><br>
+  <% end %>
   <%= link_to 'Acts A-Z', acts_path %>
   <%= link_to 'Stages', venues_path %>
   <% @event.acts.each do |act | %>

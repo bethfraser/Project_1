@@ -11,6 +11,7 @@ class ActsController < ApplicationController
 
   def new
     @act = Act.new
+    @keywords = Keyword.all
   end
 
   def create 
@@ -29,11 +30,15 @@ class ActsController < ApplicationController
 
   def edit 
     @act = Act.find(params[:id])
+    @keywords = Keyword.all
   end
 
   def update
     act = Act.find(params[:id])
     act.update(act_params)
+    params[:act][:keyword_ids] ||= []
+    keyword = Keyword.find(params[:act][:keyword_ids]) 
+    act.keywords = keyword
     redirect_to act_path(act)
   end
 
@@ -48,7 +53,7 @@ class ActsController < ApplicationController
   private
 
   def act_params
-    params.require(:act).permit(:name, :description, :act_image, :event_id)  
+    params.require(:act).permit(:name, :description, :act_image, :event_id, { :keywords => []})  
   end
 
 

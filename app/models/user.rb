@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  has_many :bookings
+  has_many :bookings, dependent: :destroy
   has_many :timeslots, through: :bookings
 
   def role?(role_to_compare)
