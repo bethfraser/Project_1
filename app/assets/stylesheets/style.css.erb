@@ -6,12 +6,19 @@ header, .main, .logo, .nav_buttons {
 
 * {
   font-family: 'Arvo', serif;
-
 }
+
+html {
+  font-size: 16px;
+}
+
 
 .main, footer {
   font-size: 3rem;
-  width: 100%;
+}
+
+.main {
+  background-color: #fefbe0;
 }
 
 footer {
@@ -23,20 +30,29 @@ footer {
 
 header {
   height: 60px;
-  background-color: lightgrey;
-  font-size: 3rem;
+}
+
+header, footer {
+  background-color: #497328;
+  font-size: 3em;
+  line-height: 60px;
+  color: lightgrey;
+}
+
+header a, footer a {
+  color: white;
+  text-decoration: none;
 }
 
 .login {
   float: right;
-  line-height: 60px;
   display: inline-block;
 }
 
 nav {
   float: left;
-  line-height: 60px;
   display: inline-block;
+  vertical-align: middle;
 }
 
 /********** NAVIGATION **********/
@@ -52,10 +68,11 @@ nav {
   display: inline-block;
   margin-bottom: 50px;
   width: 75%;
-  background-color: skyblue;
+  background-color: #be332a;
   padding: 20px;
   text-decoration: none;
   border-radius: 30px;
+  color: white;
 }
 
 .nav-buttons a:last-child {
@@ -64,20 +81,21 @@ nav {
 
 .logo {
   text-align: center;
-  background-color: lavender;
+  background-image: url("http://previews.123rf.com/images/wuttichok/wuttichok1112/wuttichok111200073/11449960-Beautiful-green-grass-pattern-from-golf-course-Stock-Photo-grass-texture-background.jpg");
   padding: 20px;
 }
 
 .logo, .logo a {
   font-size:9rem;
+  color: white;
   text-decoration: none;
+  text-shadow: 3px 3px 3px black;
   font-family: 'Caveat Brush', cursive;
 }
 
 /********** INDEX PAGE **********/
 
 .home-box {
-  width: 100%;
   text-align: center;
 }
 
@@ -86,7 +104,7 @@ nav {
   margin: 30px 30px;
   display: inline-block;
   font-size: 6rem;
-  background-color: pink;
+  background-color: #67bde2;
   height: 350px;
   border-radius: 30px;
 }
@@ -95,6 +113,7 @@ nav {
   text-decoration: none;
   padding: 20px;
   line-height: 350px;
+  color: white;
 }
 
 .mobile-lineup {
@@ -105,14 +124,27 @@ nav {
   display:none;
 }
 
-@media screen and (min-device-width: 750px) and (min-width: 750px) {
+@media screen and (min-device-width: 750px) and (min-width: 950px) {
   .mobile-lineup {
     display:none;
   }
 
   .big-lineup {
     display:inline;
-    border: 21px solid red;
+  }
+
+}
+
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+
+  html {
+    font-size: 6px;
+  }
+
+  header {
+    height: 30px;
+    line-height: 30px;
+    font-size: 3em;
   }
 
 }
