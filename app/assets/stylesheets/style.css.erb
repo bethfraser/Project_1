@@ -303,15 +303,6 @@ ul.timetable {
   padding: 0;
 }
 
-.schedule, .unschedule {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-color: white;
-  border: 0;
-  padding: 0;
-  min-width: 46px;
-  height: 46px;
-}
 
 .date {
   font-size: 3rem;
@@ -330,6 +321,14 @@ ul.timetable {
 
 .each-act:first-child {
   font-weight:bold;
+}
+
+span.time-hover {
+  display: none;
+}
+
+.each-time:hover  span {
+  display: inline-block;
 }
 
 .lineup {
@@ -351,14 +350,26 @@ ul.timetable {
   text-decoration: none;
   padding: 10px;
   border-radius: 25px;
-  background-color:lavender;
+  background-color:#67bde2;
+  color: white;
 }
 
 .selected a {
-  background-color: pink;
+  background-color: #be332a;
 }
 
 /*** ADD TO SCHEDULE STARS ****/
+
+
+.schedule, .unschedule {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #fefbe0;
+  border: 0;
+  padding: 0;
+  min-width: 46px;
+  height: 46px;
+}
 
 .schedule:hover {
   background-image: url(<%= asset_path 'rate.png' %>);

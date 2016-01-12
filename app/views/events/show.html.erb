@@ -14,17 +14,21 @@
   
     <li class="venue_name"><h4><%= link_to venue.name, venue_path(venue) %></h4></li>
 </ul>
+
 <ul class="days">
     <li><% days.each do |day| %>
    
     <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
-    
+    <div class="each-time">
     <% if timeslot.act.act_image != "" %>
     <%= image_tag(timeslot.act.act_image, class: "timetable_image") %><br>
     <% else %>
     <h3><%= timeslot.act.name %></h3>
     <% end %>
-      <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>
+
+    <span class="time-hover">
+      <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %><br><br>
+      </span>
 
       <% if current_user.timeslots.find_by_id(timeslot.id) != nil %>
   
@@ -46,10 +50,11 @@
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :timeslot_id, value: timeslot.id %>
           <%= f.submit '', class: "schedule", title: "Add to My Schedule" %>
-      <% end %>
 
       <% end %>
-     
+      
+      <% end %>
+     </div>
       <% end %>
       <li>
       

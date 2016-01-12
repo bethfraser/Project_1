@@ -35,6 +35,8 @@
       <%= timeslot.act.name %>
       <% end %>
           <br>
+
+          
         <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %> 
 
         <% if current_user.timeslots.find_by_id(timeslot.id) != nil %>
