@@ -29,8 +29,10 @@ class TimeslotsController < ApplicationController
 
     def update
       timeslot = Timeslot.find(params[:id])
-      timeslot.destroy
-      Timeslot.create(timeslot_params)
+      timeslot.start_time = nil
+      timeslot.end_time = nil
+      timeslot.save
+      timeslot.update(timeslot_params)
       redirect_to act_path(timeslot.act.id)
     end
 

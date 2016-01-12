@@ -1,7 +1,12 @@
 <div class="nav-buttons">
 
   <%= link_to 'My Schedule', users_path %><br>
+  <span class="mobile-lineup">
+  <%= link_to 'Full Lineup', day_path(10) %>
+  </span>
+  <span class="big-lineup">
   <%= link_to 'Full Lineup', event_path(1) %>
+  </span>
   </div>
 <section class="home-box">
   
