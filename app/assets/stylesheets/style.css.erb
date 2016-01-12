@@ -23,6 +23,7 @@ html {
 
 footer {
   text-align: center;
+  font-size: 2.8em;
 }
 
 
@@ -30,11 +31,11 @@ footer {
 
 header {
   height: 60px;
+  font-size: 3em;  
 }
 
 header, footer {
   background-color: #497328;
-  font-size: 3em;
   line-height: 60px;
   color: lightgrey;
 }
@@ -72,7 +73,8 @@ nav {
   padding: 20px;
   text-decoration: none;
   border-radius: 30px;
-  color: white;
+  color: white !important;
+  font-weight: normal !important;
 }
 
 .nav-buttons a:last-child {
@@ -82,7 +84,7 @@ nav {
 .logo {
   text-align: center;
   background-image: url("http://previews.123rf.com/images/wuttichok/wuttichok1112/wuttichok111200073/11449960-Beautiful-green-grass-pattern-from-golf-course-Stock-Photo-grass-texture-background.jpg");
-  padding: 20px;
+  padding: 10px;
 }
 
 .logo, .logo a {
@@ -113,7 +115,11 @@ nav {
   text-decoration: none;
   padding: 20px;
   line-height: 350px;
-  color: white;
+  color: white !important;
+}
+
+.box-1 a:hover, .box-2 a:hover, .box-3 a:hover, .box-4 a:hover {
+  color: lightgrey !important;
 }
 
 .mobile-lineup {
@@ -122,6 +128,18 @@ nav {
 
 .big-lineup {
   display:none;
+}
+
+/**** MAIN SECTION ******/
+
+.main a {
+  color: #be332a;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main a:hover {
+  color: black;
 }
 
 @media screen and (min-device-width: 750px) and (min-width: 950px) {
@@ -147,7 +165,59 @@ nav {
     font-size: 3em;
   }
 
+  .logo a {
+    font-size: 96px;
+  }
+
+  .nav-buttons {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .nav-buttons a {
+    width: 35%;
+    margin: 0px 20px 20px 20px;
+  }
+  .box {
+    border: 10px double white;
+/*    margin:10px;*/
+/*    height: 200px;*/
+  }
+
+/*  .home-box {
+    width: 45%;
+    display: inline-block;
+  }*/
+
+  .box a {
+    text-shadow: 3px 3px 10px black;
+    font-size: 10rem;
+    padding: 100px;
+  }
+
+  .box-1 {
+    background-image: url("http://rack.0.mshcdn.com/media/ZgkyMDEzLzA2LzE3L2E5L2dpZ2l0ZmF2b3JpLmViMzk0LmpwZwpwCXRodW1iCTk1MHg1MzQjCmUJanBn/3a9e6726/b1f/gigit-favorite-band.jpg");
+    background-size: cover;
+  }
+
+  .box-2 {
+    background-image: url("http://www.sarum-hydraulics.co.uk/wp-content/uploads/2015/09/fezzy.jpg");
+    background-size: cover;
+  }
+
+  .box-3 {
+    background-image: url("http://secretsofagoodgirl.com/wp-content/uploads/2012/08/summer-music-festival-attire-ssss.jpeg");
+    background-size: cover;
+  }
+
+  .box-4 {
+    background-image: url("http://www.efestivals.co.uk/photos/wychwood/2008/AroundTheSite-WychwoodFestival2008-PB02.JPG");
+    background-size: cover;
+  }
+
 }
+
+
 
 /********** ACTS PAGE **********/
 

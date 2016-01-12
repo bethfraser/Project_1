@@ -50,10 +50,10 @@
 <%= link_to 'Stages', venues_path %>
 <br>
 <% if can? :create, Act %>
-<%= link_to 'Add Act', new_act_path %>
+<%= link_to 'Add Act', new_act_path %> /
 <% end %>
 <% if can? :create, Venue %>
-<%= link_to 'Add Stage', new_venue_path %>
+<%= link_to 'Add Stage', new_venue_path %> /
 <% end %>
 <% if can? :create, Keyword %>
 <%= link_to 'Manage Keywords', keywords_path %><br>
