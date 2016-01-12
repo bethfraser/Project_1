@@ -6,37 +6,58 @@
   <link rel="stylesheet" type="text/css" href="normalize.css">
   <link rel="stylesheet" type="text/css" href="style.css.erb">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic|Caveat+Brush' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <header>
 
+<nav>
+<%= link_to 'Home', root_path %>
+</nav>
+
   <div class="login">
     <% if current_user %>
     <%= current_user.email %>
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
-    <%= link_to 'My Schedule', users_path %>
     <% else %>
     <%= link_to 'Sign In', new_user_session_path %>
     <%= link_to 'Register', new_user_registration_path %>
     <% end %>
   </div>
 
-  <nav>
-  <ul>
-  <li><%= link_to 'Home', event_path(1) %></li>
-  </ul>
-  </nav>
-
 
 </header>
 
-<div class="main">
+<div class="logo">
+<%= link_to 'BORDERS FEST', root_path %>
+</div>
+
+
+
+
+
+<section class="main">
+
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
-
 <%= yield %>
-</div>
+</section>
+
+<footer>
+<%= link_to 'Acts A-Z', acts_path %> / 
+<%= link_to 'Stages', venues_path %>
+<br>
+<% if can? :create, Act %>
+<%= link_to 'Add Act', new_act_path %>
+<% end %>
+<% if can? :create, Venue %>
+<%= link_to 'Add Stage', new_venue_path %>
+<% end %>
+<% if can? :create, Keyword %>
+<%= link_to 'Manage Keywords', keywords_path %><br>
+<% end %>
+</footer>
 </body>
 </html>

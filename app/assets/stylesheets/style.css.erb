@@ -1,8 +1,142 @@
+/********** UNIVERSAL STYLES **********/
 
-
-header, .main {
+header, .main, .logo, .nav_buttons {
   padding: 10px 10px;
 }
+
+* {
+  font-family: 'Arvo', serif;
+
+}
+
+.main, footer {
+  font-size: 3rem;
+}
+
+footer {
+  text-align: center;
+}
+
+
+/********** HEADER **********/
+
+header {
+  height: 60px;
+  background-color: lightgrey;
+  font-size: 3rem;
+}
+
+.login {
+  float: right;
+  line-height: 60px;
+  display: inline-block;
+}
+
+nav {
+  float: left;
+  line-height: 60px;
+  display: inline-block;
+}
+
+/********** NAVIGATION **********/
+
+.nav-buttons {
+  font-size: 4rem;
+  text-align: center;
+  margin: 60px 0 20px 0;
+}
+
+.nav-buttons a {
+  font-size: 5rem;
+  display: inline-block;
+  margin-bottom: 50px;
+  width: 75%;
+  background-color: skyblue;
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 30px;
+}
+
+.nav-buttons a:last-child {
+  margin-bottom: 0px;
+}
+
+.logo {
+  text-align: center;
+  background-color: lavender;
+  padding: 20px;
+}
+
+.logo, .logo a {
+  font-size:9rem;
+  text-decoration: none;
+  font-family: 'Caveat Brush', cursive;
+}
+
+/********** INDEX PAGE **********/
+
+.home-box {
+  width: 100%;
+  text-align: center;
+}
+
+.box {
+  width: 40%;
+  margin: 30px 30px;
+  display: inline-block;
+  font-size: 6rem;
+  background-color: pink;
+  height: 350px;
+  border-radius: 30px;
+}
+
+.box a {
+  text-decoration: none;
+  padding: 20px;
+  line-height: 350px;
+}
+
+/********** ACTS PAGE **********/
+
+form {
+
+}
+.filter select  {
+ background: transparent;
+ width: 340px;
+ padding: 5px;
+ font-size: 3rem;
+ font-family: 'Arvo';
+ line-height: 3rem;
+ border: 0;
+ border-radius: 0;
+ -webkit-appearance: none;
+
+}
+
+.filter {
+  width: 368px;
+  overflow: hidden;
+  background: url('https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png') no-repeat right #ddd;
+  border: 1px solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.filter-button {
+  padding: 5px;
+  font-size: 3rem;
+  font-family: 'Arvo';
+  line-height: 3rem;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  color: white;
+  background-color: grey;
+}
+
+
+
 
 .field_with_errors {
   display: inline-block;
@@ -39,14 +173,21 @@ ul.timetable {
 }
 
 .schedule, .unschedule {
-background-repeat: no-repeat;
-background-color: white;
-border: 0;
-padding: 0;
-min-width: 16px;
-height: 16px;
+  background-repeat: no-repeat;
+  background-color: white;
+  border: 0;
+  padding: 0;
+  min-width: 16px;
+  height: 16px;
 }
 
+.date {
+  font-size: 2rem;
+}
+
+.lineup {
+  font-size: 2rem;
+}
 .schedule:hover {
   background-image: url(<%= asset_path 'rate.png' %>);
 }

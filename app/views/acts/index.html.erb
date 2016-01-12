@@ -6,11 +6,15 @@
 Filter by tag:<br> 
 
 <%= form_tag({controller: "keywords", action: "filter"}, method: "get") do %>
+
+<div class="filter">
 <%= select_tag(:keyword_select, options_for_select(Keyword.all.collect { |a| [ a.name, a.id ] })) %>
-<%= submit_tag(value = 'Go') %>
+</div>
+<%= submit_tag(value = 'Go', class: "filter-button") %>
 <% end %>
 
-<br><br>
+
+<br>
 
 
 <% @acts.each do |act| %>

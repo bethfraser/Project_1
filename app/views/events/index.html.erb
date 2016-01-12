@@ -1,10 +1,16 @@
-<h1>Events index</h1>
+<div class="nav-buttons">
+
+  <%= link_to 'My Schedule', users_path %><br>
+  <%= link_to 'Full Lineup', event_path(1) %>
+  </div>
+<section class="home-box">
+  
+<div class="box"><%= link_to 'Acts', acts_path %></div>
+<div class="box"><%= link_to 'Stages', venues_path %></div>
+</section>
+<section class="home-box">
+<div class="box"><%= link_to 'News', '/news' %></div>
+<div class="box"><%= link_to 'Info', '/info' %></div>
 
 
-
-<p>
-<% @events.each do |event| %>
-<h3><%= link_to event.name, event_path(event) %></h3>
-<%= event.description %><br>
-<% end %>
-</p>
+</section>

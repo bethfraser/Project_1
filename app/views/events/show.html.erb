@@ -1,18 +1,4 @@
-
-<h3><%= @event.name %></h3>
-<%= @event.description %><br>
-  <% if can? :create, Act %>
-  <%= link_to 'Add Act', new_act_path %>
-  <% end %>
-  <% if can? :create, Venue %>
-  <%= link_to 'Add Stage', new_venue_path %>
-  <% end %>
-  <% if can? :create, Keyword %>
-  <%= link_to 'Manage Keywords', keywords_path %><br>
-  <% end %>
-  <%= link_to 'Acts A-Z', acts_path %>
-  <%= link_to 'Stages', venues_path %>
-  <br><br>
+<section class="lineup">
 <ul class="timetable">
 <li class="date"><h1>Friday</h1>June 10th</li>
 <li class="date"><h1>Saturday</h1>June 11th</li>
@@ -30,6 +16,7 @@
 </ul>
 <ul class="days">
     <li><% days.each do |day| %>
+   
     <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
     
     <% if timeslot.act.act_image != "" %>
@@ -59,7 +46,6 @@
           <%= f.hidden_field :user_id, value: current_user.id %>
           <%= f.hidden_field :timeslot_id, value: timeslot.id %>
           <%= f.submit '', class: "schedule", title: "Add to My Schedule" %>
-
       <% end %>
 
       <% end %>
@@ -71,3 +57,4 @@
     </ul>
   <% end %>
 
+  </section>
