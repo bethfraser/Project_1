@@ -1,0 +1,75 @@
+
+<div class="lineup-nav">
+<div class=<%= "selected" if current_page?('/days/10') %>>
+  <%= link_to 'Friday', day_path(10) %>
+</div>
+<div class=<%= "selected" if current_page?('/days/11') %>>
+  <%= link_to 'Saturday', day_path(11) %>
+</div>
+<div class=<%= "selected" if current_page?('/days/12') %>>
+  <%= link_to 'Sunday', day_path(12) %>
+</div>
+
+</div>
+
+<section class="lineup">
+
+  <section class="day-timetable">
+
+    <div class="date"><h1><%= @start_time.strftime("%A") %></h1>
+      <%= @start_time.strftime("%B %e") %><br><br>
+    </div>
+
+    <% @venues.each do |venues| %>
+    <div class="venue"> 
+      <%= venues.first.venue.name %>
+    </div>
+
+
+    <div class="acts">
+    <% venues.sort_by(&:start_time).reverse.each do |timeslot| %>
+      <div class="each-act">
+      <% if timeslot.act.act_image != "" %>
+      <%= image_tag(timeslot.act.act_image, class: "timetable_image") %>
+      <% else %>
+      <%= timeslot.act.name %>
+      <% end %>
+          <br>
+        <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %> 
+
+        <% if current_user.timeslots.find_by_id(timeslot.id) != nil %>
+
+        <%= button_to '', booking_path(current_user.bookings.find_by_timeslot_id(timeslot.id)), method: :delete, class: "unschedule", title: "Remove from My Schedule" %>
+        <% else %>
+        <%= form_for(@booking, :html => {class: "schedule_form"}) do |f| %> 
+        <% if @booking.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this act from being saved:</h2>
+
+          <ul>
+            <% @booking.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+            <% end %><!-- end of errors each do -->
+          </ul>
+        </div>
+        <% end %><!-- end of if any errors -->
+
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.hidden_field :timeslot_id, value: timeslot.id %>
+        <%= f.submit '', class: "schedule", title: "Add to My Schedule" %>
+        <% end %><!-- end of form -->
+
+
+        <% end %><!-- end of if user has timeslot -->
+
+      </div><!-- div act-each -->
+
+
+      
+      <% end %><!-- venues each do timeslot -->
+      <br>
+    </div><!-- div acts-->
+    <% end %><!-- @venues each do  -->
+
+  </section>
+</section>

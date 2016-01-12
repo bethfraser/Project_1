@@ -11,6 +11,7 @@ header, .main, .logo, .nav_buttons {
 
 .main, footer {
   font-size: 3rem;
+  width: 100%;
 }
 
 footer {
@@ -138,6 +139,14 @@ form {
 
 
 
+.venue {
+  font-size: 2.5em;
+  font-weight: bold;
+  border-bottom: 2px solid grey;
+  border-top: 2px solid grey;
+  margin-bottom: 20px;
+}
+
 .field_with_errors {
   display: inline-block;
   color: red;
@@ -174,20 +183,61 @@ ul.timetable {
 
 .schedule, .unschedule {
   background-repeat: no-repeat;
+  background-size: cover;
   background-color: white;
   border: 0;
   padding: 0;
-  min-width: 16px;
-  height: 16px;
+  min-width: 46px;
+  height: 46px;
 }
 
 .date {
-  font-size: 2rem;
+  font-size: 3rem;
+}
+
+.date h1 {
+  font-size: 8rem;
+  margin: 1rem;
+}
+
+.day-timetable {
+  margin: 0 auto;
+  max-width: 85%;
+  text-align: center;
+}
+
+.each-act:first-child {
+  font-weight:bold;
 }
 
 .lineup {
   font-size: 2rem;
 }
+
+/*** DAY PAGES NAVIGATION ****/
+
+.lineup-nav div {
+  display: inline-block;
+}
+
+.lineup-nav {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.lineup-nav a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 25px;
+  background-color:lavender;
+}
+
+.selected a {
+  background-color: pink;
+}
+
+/*** ADD TO SCHEDULE STARS ****/
+
 .schedule:hover {
   background-image: url(<%= asset_path 'rate.png' %>);
 }
@@ -209,5 +259,5 @@ ul.timetable {
 }
 
 .timetable_image {
-  width: 200px;
+  width: 75%;
 }
