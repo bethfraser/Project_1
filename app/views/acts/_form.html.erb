@@ -24,7 +24,7 @@
     <%= f.text_field :headline_image %><br>
 
     <%= f.label :description, 'Bio' %><br>
-    <%= f.text_area :description %><br>
+    <%= f.text_area :description, rows: 10, cols: 40 %><br>
 
     <%= f.label 'Keywords' %><br>
     <% @keywords.each do |keyword| %>
