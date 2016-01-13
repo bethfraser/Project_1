@@ -11,7 +11,7 @@
   </div>
 <% end %>
 <%= f.label :act_id, 'Act' %>
-<%= f.select :act_id, Act.all.order(:name).collect { |a| [ a.name, a.id ] }, :selected => @act.id %><br>
+<%= f.select :act_id, Act.all.order(:name).collect { |a| [ a.name, a.id ] }, :selected => (@act.id if @act) || @timeslot.act.id %><br>
 <%= f.label :venue_id, 'Stage' %>
 <%= f.select :venue_id, Venue.all.collect { |v| [ v.name, v.id ] } %><br>
 

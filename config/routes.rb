@@ -9,7 +9,7 @@ Rails.application.routes.draw do
 
   get 'keywords/filter', to: 'keywords#filter'
 
-  devise_for :users
+  devise_for :users, :controllers => { registrations: 'registrations' }
   resources :events
   resources :acts
   resources :venues

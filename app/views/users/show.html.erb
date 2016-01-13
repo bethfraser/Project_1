@@ -1,0 +1,8 @@
+<% if @user == current_user %>
+<%= link_to 'Edit My Profile', edit_user_registration_path(@user) %>
+<% end %>
+
+<h2><%= @user.name %></h2>
+
+<%= image_tag(@user.user_image.medium.url, class: "user-image-medium") %>
+
