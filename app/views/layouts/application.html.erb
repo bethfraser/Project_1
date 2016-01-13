@@ -11,6 +11,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="page-wrap">
 <header>
 
 <nav>
@@ -45,7 +46,7 @@
 <p class="alert"><%= alert %></p>
 <%= yield %>
 </section>
-
+</div>
 <footer>
 <%= link_to 'Acts A-Z', acts_path %> / 
 <%= link_to 'Stages', venues_path %>

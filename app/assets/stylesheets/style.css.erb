@@ -17,7 +17,7 @@ html {
   font-size: 3rem;
 }
 
-.main {
+.main, body {
   background-color: #fefbe0;
 }
 
@@ -58,6 +58,30 @@ nav {
   float: left;
   display: inline-block;
   vertical-align: middle;
+}
+
+/********** FOOTER **********/
+
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+}
+.page-wrap::after {
+  content: " ";
+  display: block;
+}
+footer, .page-wrap::after {
+  height: 60px; 
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+
 }
 
 /********** NAVIGATION **********/
