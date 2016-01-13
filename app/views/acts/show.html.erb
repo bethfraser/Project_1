@@ -1,13 +1,15 @@
 <h2><%= @act.name %></h2>
-
+<div class="act-main">
 <% if @act.act_image %>
-<%= image_tag(@act.act_image) %><br>
+<%= image_tag(@act.act_image, class: "act-image") %><br>
 <% end %>
-<%= @act.description %><br><br>
+<%= @act.html %><br><br>
+</div>
+<div class="act-details">
 Tags: <br>
 <% @act.keywords.each do |keyword| %>
-<%= link_to keyword.name, keyword_path(keyword) %>
-<% end %><br>
+- <%= link_to keyword.name, keyword_path(keyword) %>
+<% end %><br><br>
 Times:<br>
 <% @act.timeslots.order(:start_time).each do |timeslot| %>
 <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> 
@@ -32,11 +34,12 @@ Times:<br>
 <% end %>
 <%= f.hidden_field :user_id, value: current_user.id %>
 <%= f.hidden_field :timeslot_id, value: timeslot.id %>
-<%= f.submit 'Add to My Schedule' %>
+<%= f.submit 'Add to My Schedule', class: "add-button" %>
 <% end %><br>
-
+<br>
+<%= link_to 'Back', :back %>
 <% end %>
-
+</div>
 <br><br>
 <% if can? :update, Act %>
 <%= link_to "Edit Act Profile", edit_act_path(@act) %> - 

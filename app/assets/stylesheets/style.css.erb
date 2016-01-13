@@ -1,7 +1,7 @@
 /********** UNIVERSAL STYLES **********/
 
 header, .main, .logo, .nav_buttons {
-  padding: 10px 10px;
+  padding: 10px 20px;
 }
 
 * {
@@ -195,80 +195,84 @@ nav {
     width: 35%;
     margin: 0px 20px 20px 20px;
   }
+
+  .act-image {
+    max-width: 350px;
+    float: right;
+    margin: 20px
+    border-radius: 25px;
+ 
+  }
+
   .box {
     border: 10px double white;
-/*    margin:10px;*/
-/*    height: 200px;*/
+
   }
 
-/*  .home-box {
-    width: 45%;
-    display: inline-block;
-  }*/
 
-  .box a {
-    text-shadow: 3px 3px 10px black;
-    font-size: 10rem;
-    padding: 100px;
+    .box a {
+      text-shadow: 3px 3px 10px black;
+      font-size: 10rem;
+      padding: 100px;
+    }
+
+    .box-1 {
+      background-image: url("http://rack.0.mshcdn.com/media/ZgkyMDEzLzA2LzE3L2E5L2dpZ2l0ZmF2b3JpLmViMzk0LmpwZwpwCXRodW1iCTk1MHg1MzQjCmUJanBn/3a9e6726/b1f/gigit-favorite-band.jpg");
+      background-size: cover;
+    }
+
+    .box-2 {
+      background-image: url("http://www.sarum-hydraulics.co.uk/wp-content/uploads/2015/09/fezzy.jpg");
+      background-size: cover;
+    }
+
+    .box-3 {
+      background-image: url("http://secretsofagoodgirl.com/wp-content/uploads/2012/08/summer-music-festival-attire-ssss.jpeg");
+      background-size: cover;
+    }
+
+    .box-4 {
+      background-image: url("http://www.efestivals.co.uk/photos/wychwood/2008/AroundTheSite-WychwoodFestival2008-PB02.JPG");
+      background-size: cover;
+    }
+
   }
 
-  .box-1 {
-    background-image: url("http://rack.0.mshcdn.com/media/ZgkyMDEzLzA2LzE3L2E5L2dpZ2l0ZmF2b3JpLmViMzk0LmpwZwpwCXRodW1iCTk1MHg1MzQjCmUJanBn/3a9e6726/b1f/gigit-favorite-band.jpg");
-    background-size: cover;
+
+
+  /********** ACTS PAGE **********/
+
+  form {
+
   }
 
-  .box-2 {
-    background-image: url("http://www.sarum-hydraulics.co.uk/wp-content/uploads/2015/09/fezzy.jpg");
-    background-size: cover;
+  .each-time a {
+    color:black;
   }
 
-  .box-3 {
-    background-image: url("http://secretsofagoodgirl.com/wp-content/uploads/2012/08/summer-music-festival-attire-ssss.jpeg");
-    background-size: cover;
+  .each-time:first-child a {
+    font-size: 2em;
+    text-transform: uppercase;
   }
 
-  .box-4 {
-    background-image: url("http://www.efestivals.co.uk/photos/wychwood/2008/AroundTheSite-WychwoodFestival2008-PB02.JPG");
-    background-size: cover;
+  .each-time a {
+    font-size: 1.5em;
   }
 
-}
+  .filter select  {
+   background: transparent;
+   width: 340px;
+   padding: 15px;
+   font-size: 3.5rem;
+   font-family: 'Arvo';
+   line-height: 3rem;
+   border: 0;
+   border-radius: 0;
+   /*-webkit-appearance: none;*/
 
+ }
 
-
-/********** ACTS PAGE **********/
-
-form {
-
-}
-
-.each-time a {
-  color:black;
-}
-
-.each-time:first-child a {
-  font-size: 2em;
-  text-transform: uppercase;
-}
-
-.each-time a {
-  font-size: 1.5em;
-}
-
-.filter select  {
- background: transparent;
- width: 340px;
- padding: 15px;
- font-size: 3.5rem;
- font-family: 'Arvo';
- line-height: 3rem;
- border: 0;
- border-radius: 0;
- /*-webkit-appearance: none;*/
-
-}
-
-.filter {
+ .filter {
   width: 350px;
   overflow: hidden;
   background: #ddd;
@@ -292,8 +296,7 @@ form {
 }
 
 
-
-
+/**** LINEUP and SCHEDULE PAGE ******/
 .venue {
   font-size: 2.5em;
   font-weight: bold;
@@ -438,4 +441,35 @@ span.time-hover {
 
 .timetable_image {
   width: 75%;
+}
+
+/******* ACT PROFILES *******/
+
+.add-button {
+  color: #be332a;
+  background: none;
+  border: 0;
+  font-family: 'Arvo';
+  font-weight: bold;
+}
+
+.add-button:hover {
+  color: black;
+}
+
+.act-image {
+  max-width: 80%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+}
+
+.act-main {
+  padding-left: 20px;
+}
+
+.act-details {
+  display: block;
+  clear: both;
+  padding-left: 20px;
 }

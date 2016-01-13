@@ -3,12 +3,12 @@
     <% fri = @timeslots.select { |t| t.start_time.day == 10 } %>
     <% sat = @timeslots.select { |t| t.start_time.day == 11 } %>
     <% sun = @timeslots.select { |t| t.start_time.day == 12 } %>
-    <% days = [fri, sat, sun] %>
+    <% days = {["Friday", "June 10th"] => fri, ["Saturday", "June 11th"] => sat, ["Sunday", "June 11th"] => sun} %>
 
 <ul class="user-days">
-    <% days.each do |day| %>
+    <% days.each do |date, day| %>
     <li>
-    <span class="date"><h1><%= day.first.start_time.strftime("%A") %></h1><%= day.first.start_time.strftime("%B %eth") %></span>
+    <span class="date"><h1><%= date.first %></h1><%= date.last %></span>
     <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
     
     <h3><%= timeslot.act.name %></h3>
