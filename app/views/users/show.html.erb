@@ -3,6 +3,9 @@
 <% end %>
 
 <h2><%= @user.name %></h2>
+<% if @user.role %>
+Role: <%= @user.role %><br><br>
+<% end %>
 
 <%= image_tag(@user.user_image.medium.url, class: "user-image-medium") %>
 

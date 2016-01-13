@@ -3,6 +3,7 @@
     <li class="date"><h1>Friday</h1>June 10th</li>
     <li class="date"><h1>Saturday</h1>June 11th</li>
     <li class="date"><h1>Sunday</h1>June 12th</li>
+    <br><br>
     <% @event.venues.each do |venue| %>
 
 
@@ -12,7 +13,10 @@
     <% days = [fri, sat, sun] %>
     
 
-    <li class="venue_name"><h4><%= link_to venue.name, venue_path(venue) %></h4></li>
+    <li class="venue_name">
+<span class="venue_name_text">
+    <h4>
+  <%= link_to venue.name, venue_path(venue) %></h4></span><br></li>
   </ul>
 
   <ul class="days">

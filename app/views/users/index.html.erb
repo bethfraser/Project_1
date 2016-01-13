@@ -11,7 +11,7 @@
     <span class="date"><h1><%= date.first %></h1><%= date.last %></span>
     <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
     
-    <h3><%= timeslot.act.name %></h3>
+    <h3><%= link_to timeslot.act.name, act_path(timeslot.act) %></h3>
     
       <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %>
 
