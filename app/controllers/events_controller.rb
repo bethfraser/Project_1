@@ -10,5 +10,9 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @booking = Booking.new
   end
+
+  def info
+
+  end
   
 end
