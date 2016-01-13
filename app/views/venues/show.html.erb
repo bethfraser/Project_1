@@ -22,6 +22,6 @@
 <% if can? :update, Venue %>
 <%= link_to "Edit Stage Profile", edit_venue_path(@venue) %> -
 <% end %> 
-<% if can? :create, Timeslot %>
-<%= link_to "Add Performance Times", new_timeslot_path %> 
+<% if can? :create, Timeslot %> 
+<%= link_to "Add Performance Times", {:controller => "timeslots", :action => "new", :venue_id => @venue.id } %> 
 <% end %>

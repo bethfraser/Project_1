@@ -6,7 +6,16 @@ class TimeslotsController < ApplicationController
 
     def new
       @timeslot = Timeslot.new
+      if params[:id]
       @act = Act.find(params[:id])
+      else
+      @act = Act.all.sort_by(&:name).first
+      end
+      if params[:venue_id]
+      @venue = Venue.find(params[:venue_id])
+      else
+      @venue = Venue.all.first
+      end
     end
 
     def create 
@@ -33,8 +42,18 @@ class TimeslotsController < ApplicationController
       timeslot.start_time = nil
       timeslot.end_time = nil
       timeslot.save
-      timeslot.update(timeslot_params)
-      redirect_to act_path(timeslot.act.id)
+
+      respond_to do |format|
+        if timeslot.update(timeslot_params)
+          format.html { redirect_to act_path(timeslot.act), notice: 'Performance slot was successfully updated.' }
+          # format.json { render :show, status: :created, location: @recipe }
+        else
+          format.html { render :new }
+          # format.json { render json: @recipe.errors, status: :unprocessable_entity }
+        end
+      end
+
+
     end
 
     def destroy

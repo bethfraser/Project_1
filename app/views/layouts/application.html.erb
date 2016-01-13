@@ -33,7 +33,7 @@
 </header>
 
 <div class="logo">
-<%= link_to 'BORDERS FEST', root_path %>
+<%= link_to 'BORDERS FEST', event_path(1) %>
 </div>
 
 
@@ -50,9 +50,8 @@
 <footer>
 <%= link_to 'Acts A-Z', acts_path %> / 
 <%= link_to 'Stages', venues_path %>
-<br>
 <% if can? :create, Act %>
-<%= link_to 'Add Act', new_act_path %> /
+ / <%= link_to 'Add Act', new_act_path %> /
 <% end %>
 <% if can? :create, Venue %>
 <%= link_to 'Add Stage', new_venue_path %> /

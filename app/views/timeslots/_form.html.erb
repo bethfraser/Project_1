@@ -13,7 +13,7 @@
 <%= f.label :act_id, 'Act' %>
 <%= f.select :act_id, Act.all.order(:name).collect { |a| [ a.name, a.id ] }, :selected => (@act.id if @act) || @timeslot.act.id %><br>
 <%= f.label :venue_id, 'Stage' %>
-<%= f.select :venue_id, Venue.all.collect { |v| [ v.name, v.id ] } %><br>
+<%= f.select :venue_id, Venue.all.collect { |v| [ v.name, v.id ] }, :selected => (@venue.id if @venue) || @timeslot.venue.id  %><br>
 
 <%= f.label :start_time %><br>
 <%= f.datetime_select :start_time, :minute_step => 5, default: { month: 6, day: 10 } %><br>

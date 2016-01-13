@@ -6,7 +6,6 @@ class Timeslot < ActiveRecord::Base
   has_many :users, through: :bookings
 
 
-
   validate :check_venue_clashes
   validate :check_act_clashes
   validate :is_during_event
