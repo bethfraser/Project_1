@@ -6,7 +6,7 @@
 <%= @act.description %><br><br>
 Tags: <br>
 <% @act.keywords.each do |keyword| %>
-<%= keyword.name %>
+<%= link_to keyword.name, keyword_path(keyword) %>
 <% end %><br>
 Times:<br>
 <% @act.timeslots.order(:start_time).each do |timeslot| %>

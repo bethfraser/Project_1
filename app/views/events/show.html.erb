@@ -21,13 +21,13 @@
       <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
       <div class="each-time">
         <% if timeslot.act.headline_image != nil && timeslot.act.headline_image != "" %>
-        <%= image_tag(timeslot.act.headline_image, class: "timetable_image") %><br>
+        <%= link_to image_tag(timeslot.act.headline_image, class: "timetable_image"), act_path(timeslot.act) %><br>
         <% else %>
-        <h3><%= timeslot.act.name %></h3>
+        <h3><%= link_to timeslot.act.name, act_path(timeslot.act) %></h3>
         <% end %>
 
         <span class="time-hover">
-          <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %><br><br>
+          <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>
         
 
         <% if current_user.timeslots.find_by_id(timeslot.id) != nil %>

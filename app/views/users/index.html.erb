@@ -1,20 +1,14 @@
 <h1>My Schedule</h1>
 
-
-
-<ul class="timetable">
-<li class="date"><h1>Friday</h1>June 10th</li>
-<li class="date"><h1>Saturday</h1>June 11th</li>
-<li class="date"><h1>Sunday</h1>June 12th</li>
-  
     <% fri = @timeslots.select { |t| t.start_time.day == 10 } %>
     <% sat = @timeslots.select { |t| t.start_time.day == 11 } %>
     <% sun = @timeslots.select { |t| t.start_time.day == 12 } %>
     <% days = [fri, sat, sun] %>
-    
-</ul>
-<ul class="days">
-    <% days.each do |day| %><li>
+
+<ul class="user-days">
+    <% days.each do |day| %>
+    <li>
+    <span class="date"><h1><%= day.first.start_time.strftime("%A") %></h1><%= day.first.start_time.strftime("%B %eth") %></span>
     <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
     
     <h3><%= timeslot.act.name %></h3>
@@ -24,6 +18,7 @@
         <%= button_to '', booking_path(current_user.bookings.find_by_timeslot_id(timeslot.id)), method: :delete, class: "unschedule", title: "Remove from My Schedule" %>
      
       <% end %>
+      <br><br>
       </li>
       
     <% end %>

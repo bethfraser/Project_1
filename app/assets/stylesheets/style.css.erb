@@ -142,13 +142,30 @@ nav {
   color: black;
 }
 
-@media screen and (min-device-width: 750px) and (min-width: 950px) {
+@media all and (min-device-width: 750px) and (min-width: 950px) {
   .mobile-lineup {
     display:none;
   }
 
   .big-lineup {
     display:inline;
+  }
+
+  ul.user-days li {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 1px;
+  }
+
+  .schedule, .unschedule {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+  }
+
+  .time-hover {
+    line-height: 26px;
   }
 
 }
@@ -224,30 +241,45 @@ nav {
 form {
 
 }
+
+.each-time a {
+  color:black;
+}
+
+.each-time:first-child a {
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.each-time a {
+  font-size: 1.5em;
+}
+
 .filter select  {
  background: transparent;
  width: 340px;
- padding: 5px;
- font-size: 3rem;
+ padding: 15px;
+ font-size: 3.5rem;
  font-family: 'Arvo';
  line-height: 3rem;
  border: 0;
  border-radius: 0;
- -webkit-appearance: none;
+ /*-webkit-appearance: none;*/
 
 }
 
 .filter {
-  width: 368px;
+  width: 350px;
   overflow: hidden;
-  background: url('https://cdn3.iconfinder.com/data/icons/google-material-design-icons/48/ic_keyboard_arrow_down_48px-128.png') no-repeat right #ddd;
-  border: 1px solid #fff;
+  background: #ddd;
+  border: 0px solid #fff;
   display: inline-block;
   vertical-align: middle;
+  margin-top: 10px;
 }
 
 .filter-button {
-  padding: 5px;
+  padding: 5.5px;
   font-size: 3rem;
   font-family: 'Arvo';
   line-height: 3rem;
@@ -256,6 +288,7 @@ form {
   border: 0;
   color: white;
   background-color: grey;
+  margin-top: 10px;
 }
 
 
@@ -273,6 +306,7 @@ li.venue_name {
   width: 100%;
   text-align: center;
   font-size: 2em;
+  list-style: none;
 }
 
 .field_with_errors {
@@ -280,17 +314,24 @@ li.venue_name {
   color: red;
 }
 
-li {
+.days li, li.date {
   width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1px;
+
+}
+
+.user-days li {
+  width: 100%;
   display: inline-block;
   vertical-align: top;
   padding: 1px;
 }
 
-ul.days {
+ul.days, ul.user-days {
   text-align: center;
 }
-
 
 
 ul {
@@ -328,6 +369,7 @@ ul.timetable {
 
 span.time-hover {
   display: none;
+  font-size: 2.5rem;
 }
 
 .each-time:hover  span {
