@@ -1,5 +1,8 @@
 class ActsController < ApplicationController
   
+
+  before_action :authenticate_user!, except: :index
+  
   def index
     @acts = Act.all.order(:name)
     @keywords = Keyword.all

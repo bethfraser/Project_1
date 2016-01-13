@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+  
+
+  before_action :authenticate_user!
+
   def index
     @bookings = current_user.bookings.all
     @timeslots = current_user.timeslots.all

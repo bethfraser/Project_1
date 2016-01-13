@@ -1,5 +1,8 @@
 class TimeslotsController < ApplicationController
     
+
+    before_action :authenticate_user!
+    
     def index
       @timeslots = Timeslot.all
     end

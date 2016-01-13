@@ -14,6 +14,9 @@ class User < ActiveRecord::Base
     self.role.to_s == role_to_compare.to_s
   end
 
+  validates :login_code, inclusion: { in: %w(LOGINCODE1 LOGINCODE5 LOGINCODE6),
+    message: "%{value} is not a valid ticket holder code" }, on: :create
+
 
 
 end
