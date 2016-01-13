@@ -11,6 +11,7 @@ class Ability
         can :read, :all
         can :create, Booking
         can :destroy, Booking 
+        can :filter, Keyword
     end
     # Define abilities for the passed in user here. For example:
     #

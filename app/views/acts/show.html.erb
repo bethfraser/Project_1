@@ -6,11 +6,11 @@
 <%= @act.html %><br><br>
 </div>
 <div class="act-details">
-Tags: <br>
+<h4>Tags:</h4>
 <% @act.keywords.each do |keyword| %>
 - <%= link_to keyword.name, keyword_path(keyword) %>
 <% end %><br><br>
-Times:<br>
+<h4>Times:</h4>
 <% @act.timeslots.order(:start_time).each do |timeslot| %>
 <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> 
 
@@ -36,16 +36,17 @@ Times:<br>
 <%= f.hidden_field :timeslot_id, value: timeslot.id %>
 <%= f.submit 'Add to My Schedule', class: "add-button" %>
 <% end %><br>
+
+<% end %>
 <br>
 <%= link_to 'Back', :back %>
-<% end %>
 </div>
 <br><br>
 <% if can? :update, Act %>
 <%= link_to "Edit Act Profile", edit_act_path(@act) %> - 
 <% end %>
 <% if can? :create, Timeslot %>
-<%= link_to "Add Performance Times", new_timeslot_path %> 
+<%= link_to "Add Performance Times", {:controller => "timeslots", :action => "new", :id => @act.id } %> 
 <% end %>
 
 

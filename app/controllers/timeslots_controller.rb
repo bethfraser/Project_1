@@ -6,6 +6,7 @@ class TimeslotsController < ApplicationController
 
     def new
       @timeslot = Timeslot.new
+      @act = Act.find(params[:id])
     end
 
     def create 
