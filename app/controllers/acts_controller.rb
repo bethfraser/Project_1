@@ -54,7 +54,7 @@ class ActsController < ApplicationController
   private
 
   def act_params
-    params.require(:act).permit(:name, :description, :act_image, :event_id, { :keywords => []})  
+    params.require(:act).permit(:name, :description, :act_image, :headline_image, :event_id, { :keywords => []})  
   end
 
 

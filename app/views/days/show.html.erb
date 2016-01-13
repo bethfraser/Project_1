@@ -29,8 +29,8 @@
     <div class="acts">
     <% venues.sort_by(&:start_time).reverse.each do |timeslot| %>
       <div class="each-act">
-      <% if timeslot.act.act_image != "" %>
-      <%= image_tag(timeslot.act.act_image, class: "timetable_image") %>
+      <% if timeslot.act.headline_image != "" %>
+      <%= image_tag(timeslot.act.headline_image, class: "timetable_image") %>
       <% else %>
       <%= timeslot.act.name %>
       <% end %>
