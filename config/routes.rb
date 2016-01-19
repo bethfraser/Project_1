@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   get 'events/info'
 
-  
+  get 'event/:id/home', to: 'events#home'
 
   get 'keywords/filter', to: 'keywords#filter'
 

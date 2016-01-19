@@ -1,21 +1,8 @@
-<div class="nav-buttons">
+<h1> Event Listings </h1>
 
-  <%= link_to 'My Schedule', users_path %>
-  <span class="mobile-lineup">
-  <%= link_to 'Full Lineup', day_path(10) %>
-  </span>
-  <span class="big-lineup">
-  <%= link_to 'Full Lineup', event_path(1) %>
-  </span>
-  </div>
-<section class="home-box">
-  
-<div class="box box-1"><%= link_to 'Acts', acts_path %></div>
-<div class="box box-2"><%= link_to 'Stages', venues_path %></div>
-</section>
-<section class="home-box">
-<div class="box box-3"><%= link_to 'News', '/news' %></div>
-<div class="box box-4"><%= link_to 'Info', '/events/info' %></div>
+<% @events.each do |event| %>
 
+<h3><%= link_to event.name, "event/#{event.id}/home" %></h3>
+<%= event.description %><br><br>
 
-</section>
+<% end %>

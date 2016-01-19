@@ -3,7 +3,8 @@ class EventsController < ContentController
   before_action :authenticate_user!, except: :index
 
   def index
-    @event = Event.find(1)
+    @events = Event.all
+    render :layout => false
   end
 
   def show
@@ -12,8 +13,12 @@ class EventsController < ContentController
   end
 
   def info
-
   end
+
+  def home
+    @event = Event.find(params[:id])
+  end
+
 
   def edit 
     @event = Event.find(1)
