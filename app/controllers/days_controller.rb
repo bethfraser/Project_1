@@ -1,4 +1,4 @@
-class DaysController < ApplicationController
+class DaysController < ContentController
 
 
   def index

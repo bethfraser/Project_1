@@ -1,4 +1,4 @@
-class ActsController < ApplicationController
+class ActsController < ContentController
   
 
   before_action :authenticate_user!, except: :index
@@ -11,6 +11,8 @@ class ActsController < ApplicationController
   def show 
     @act = Act.find(params[:id])
     @booking = Booking.new
+
+    # render template: template_to_render
   end
 
   def new
@@ -55,6 +57,17 @@ class ActsController < ApplicationController
 
 
   private
+
+
+
+
+    # def template_to_render
+    #   if template_exists?("act-#{@act.id}")
+    #     "act-#{@act.id}"
+    #   else
+    #     "act"
+    #   end
+    # end
 
   def act_params
     params.require(:act).permit(:name, :description, :act_image, :headline_image, :event_id, { :keywords => []})  

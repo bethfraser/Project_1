@@ -1,4 +1,4 @@
-class VenuesController < ApplicationController
+class VenuesController < ContentController
   before_action :authenticate_user!, except: :index
 
   def index

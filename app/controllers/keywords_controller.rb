@@ -1,4 +1,4 @@
-class KeywordsController < ApplicationController
+class KeywordsController < ContentController
 
   
   before_action :authenticate_user!, except: :index

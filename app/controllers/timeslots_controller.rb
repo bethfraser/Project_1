@@ -1,4 +1,4 @@
-class TimeslotsController < ApplicationController
+class TimeslotsController < ContentController
     
 
     before_action :authenticate_user!

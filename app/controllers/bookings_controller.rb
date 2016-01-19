@@ -1,4 +1,4 @@
-class BookingsController < ApplicationController
+class BookingsController < ContentController
   
   
   before_action :authenticate_user!

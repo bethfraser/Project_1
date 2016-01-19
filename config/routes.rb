@@ -2,11 +2,7 @@ Rails.application.routes.draw do
 
   get 'events/info'
 
-  get 'keyword/index'
-
-  get 'keyword/edit'
-
-  get 'keyword/new'
+  
 
   get 'keywords/filter', to: 'keywords#filter'
 
