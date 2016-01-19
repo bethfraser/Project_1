@@ -3,7 +3,9 @@
 <% if @act.act_image %>
 <%= image_tag(@act.act_image, class: "act-image") %><br>
 <% end %>
+<% if @act.description %>
 <%= @act.html %><br><br>
+<% end %>
 </div>
 <div class="act-details">
 
@@ -24,7 +26,7 @@
 
 <h4>Tags:</h4>
 <% @act.keywords.each do |keyword| %>
-- <%= link_to keyword.name, keyword_path(keyword) %>
+- <%= link_to keyword.name, event_keyword_path(@event, keyword) %>
 <% end %><br><br>
 
 <h4>Times:</h4>
@@ -32,10 +34,10 @@
 <% @act.timeslots.order(:start_time).each do |timeslot| %>
 <%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> 
 
-<% if can? :update, Timeslot %><%= link_to 'Edit', edit_timeslot_path(timeslot) %> - 
+<% if can? :update, Timeslot %><%= link_to 'Edit', edit_event_timeslot_path(@event, timeslot) %> - 
 <% end %>
 <% if can? :delete, Timeslot %>
-<%= link_to 'Delete', timeslot_path(timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %>
+<%= link_to 'Delete', event_timeslot_path(@event, timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %>
 <% end %>
 
 <%= form_for(@booking) do |f| %> 
@@ -61,10 +63,10 @@
 </div>
 <br><br>
 <% if can? :update, Act %>
-<%= link_to "Edit Act Profile", edit_act_path(@act) %> - 
+<%= link_to "Edit Act Profile", edit_event_act_path(@event, @act) %> - 
 <% end %>
 <% if can? :create, Timeslot %>
-<%= link_to "Add Performance Times", {:controller => "timeslots", :action => "new", :id => @act.id } %> 
+<%= link_to "Add Performance Times", {:controller => "timeslots", :action => "new", :id => @act.id, event: @event } %> 
 <% end %>
 
 

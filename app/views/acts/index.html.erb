@@ -1,6 +1,6 @@
 <h1>Acts A-Z</h1>
 <% if can? :create, Act %>
-<%= link_to 'Add Act', new_act_path %><br><br>
+<%= link_to 'Add Act', new_event_act_path %><br><br>
 <% end %>
 
 Filter by tag:<br> 
@@ -18,12 +18,12 @@ Filter by tag:<br>
 
 
 <% @acts.each do |act| %>
-<%= link_to act.name, act_path(act) %>
+<%= link_to act.name, event_act_path(@event, act) %>
 <% if can? :update, Act %>
-/ <%= link_to 'Edit', edit_act_path(act) %>
+/ <%= link_to 'Edit', edit_event_act_path(@event, act) %>
 <% end %>
 <% if can? :delete, Act %>
-/ <%= link_to 'Delete', act_path(act), method: :delete, data: {confirm: 'Are you sure you want to delete this act and all of its time slots?'} %><% end %>
+/ <%= link_to 'Delete', event_act_path(@event, act), method: :delete, data: {confirm: 'Are you sure you want to delete this act and all of its time slots?'} %><% end %>
 <br><br>
 
 <% end %>

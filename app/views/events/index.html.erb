@@ -2,7 +2,7 @@
 
 <% @events.each do |event| %>
 
-<h3><%= link_to event.name, "event/#{event.id}/home" %></h3>
+<h3><%= link_to event.name, "events/#{event.id}/home" %></h3>
 <%= event.description %><br><br>
 
 <% end %>

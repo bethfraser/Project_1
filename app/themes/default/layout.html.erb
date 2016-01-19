@@ -58,19 +58,19 @@
 </section>
 </div>
 <footer>
-<%= link_to 'Acts A-Z', acts_path %> / 
-<%= link_to 'Stages', venues_path %>
+<%= link_to 'Acts A-Z', event_acts_path(@event) %> / 
+<%= link_to 'Stages', event_venues_path(@event) %>
 <% if can? :create, Act %>
- / <%= link_to 'Add Act', new_act_path %> /
+ / <%= link_to 'Add Act', new_event_act_path(@event) %> /
 <% end %>
 <% if can? :create, Venue %>
-<%= link_to 'Add Stage', new_venue_path %> /
+<%= link_to 'Add Stage', new_event_venue_path(@event) %> /
 <% end %>
 <% if can? :update, Event %>
 <%= link_to 'Edit Event', "../../events/#{@event.id}/edit" %> /
 <% end %>
 <% if can? :create, Keyword %>
-<%= link_to 'Manage Keywords', keywords_path %><br>
+<%= link_to 'Manage Keywords', event_keywords_path(@event) %><br>
 <% end %>
 </footer>
 </body>

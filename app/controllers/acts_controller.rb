@@ -1,42 +1,44 @@
-class ActsController < ContentController
-  
+class ActsController < EventsController
+
 
   before_action :authenticate_user!, except: :index
   
   def index
-    @acts = Act.all.order(:name)
+    @event = Event.find(params[:event_id])
+    @acts = @event.acts.all.order(:name)
     @keywords = Keyword.all
   end
 
   def show 
     @act = Act.find(params[:id])
     @booking = Booking.new
-
-    # render template: template_to_render
+    @event = Event.find(params[:event_id])
   end
 
   def new
-    @act = Act.new
+    @act = Act.new(event_id: @event.id)
     @keywords = Keyword.all
   end
 
   def create 
     @act = Act.new(act_params)
-    
+    @event = @act.event
     respond_to do |format|
       if @act.save
-        format.html { redirect_to act_path(@act), notice: 'Act was successfully created.' }
+        format.html { redirect_to act_path(@act, event: @event), notice: 'Act was successfully created.' }
         # format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
         # format.json { render json: @recipe.errors, status: :unprocessable_entity }
       end
     end
+    
   end
 
   def edit 
     @act = Act.find(params[:id])
     @keywords = Keyword.all
+    @event = @act.event
   end
 
   def update
@@ -45,29 +47,20 @@ class ActsController < ContentController
     params[:act][:keyword_ids] ||= []
     keyword = Keyword.find(params[:act][:keyword_ids]) 
     act.keywords = keyword
-    redirect_to act_path(act)
+    @event = act.event
+    redirect_to act_path(act, event: @event)
   end
 
   def destroy
     act = Act.find(params[:id])
+    @event = act.event
     act.destroy
-    redirect_to(acts_path)
+    redirect_to(acts_path(event: @event))
   end
 
 
 
   private
-
-
-
-
-    # def template_to_render
-    #   if template_exists?("act-#{@act.id}")
-    #     "act-#{@act.id}"
-    #   else
-    #     "act"
-    #   end
-    # end
 
   def act_params
     params.require(:act).permit(:name, :description, :act_image, :headline_image, :event_id, { :keywords => []})  

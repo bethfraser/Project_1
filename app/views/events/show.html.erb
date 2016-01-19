@@ -16,7 +16,7 @@
     <li class="venue_name">
 <span class="venue_name_text">
     <h4>
-  <%= link_to venue.name, venue_path(venue) %></h4></span><br></li>
+  <%= link_to venue.name, event_venue_path(@event, venue) %></h4></span><br></li>
   </ul>
 
   <ul class="days">
@@ -25,9 +25,9 @@
       <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
       <div class="each-time">
         <% if timeslot.act.headline_image != nil && timeslot.act.headline_image != "" %>
-        <%= link_to image_tag(timeslot.act.headline_image, class: "timetable_image"), act_path(timeslot.act) %><br>
+        <%= link_to image_tag(timeslot.act.headline_image, class: "timetable_image"), event_act_path(@event, timeslot.act) %><br>
         <% else %>
-        <h3><%= link_to timeslot.act.name, act_path(timeslot.act) %></h3>
+        <h3><%= link_to timeslot.act.name, event_act_path(@event, timeslot.act) %></h3>
         <% end %>
 
         <span class="time-hover">

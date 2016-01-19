@@ -2,20 +2,24 @@ Rails.application.routes.draw do
 
   get 'events/info'
 
-  get 'event/:id/home', to: 'events#home'
+  get 'events/:id/home', to: 'events#home'
 
   get 'keywords/filter', to: 'keywords#filter'
 
   devise_for :users, :controllers => { registrations: 'registrations' }
-  resources :events
+  resources :events do
   resources :acts
   resources :venues
   resources :timeslots
+  resources :keywords
+  resources :days
+end
+
+
   resources :bookings
 
   resources :users
-  resources :keywords
-  resources :days
+
 
   root to: 'events#index'
   # The priority is based upon order of creation: first created -> highest priority.

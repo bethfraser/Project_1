@@ -1,25 +1,28 @@
-class VenuesController < ContentController
+class VenuesController < EventsController
   before_action :authenticate_user!, except: :index
 
   def index
-    @venues = Venue.all
+    @event = Event.find(params[:event_id])
+    @venues = @event.venues.all
   end
 
   def show 
     @venue = Venue.find(params[:id])
     @timeslots = @venue.timeslots.all.order(:start_time)
+    @event = Event.find(params[:event_id])
   end
 
   def new
-    @venue = Venue.new
+    @venue = Venue.new(event_id: @event.id)
   end
 
   def create 
     @venue = Venue.new(venue_params)
+    @event = @venue.event
 
     respond_to do |format|
       if @venue.save
-        format.html { redirect_to venue_path(@venue), notice: 'Stage was successfully created.' }
+        format.html { redirect_to venue_path(@venue, event: @event), notice: 'Stage was successfully created.' }
         # format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }

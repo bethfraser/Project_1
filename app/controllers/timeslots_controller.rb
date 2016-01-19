@@ -1,5 +1,5 @@
-class TimeslotsController < ContentController
-    
+class TimeslotsController < EventsController
+  
 
     before_action :authenticate_user!
     
@@ -23,11 +23,11 @@ class TimeslotsController < ContentController
 
     def create 
       @timeslot = Timeslot.new(timeslot_params)
-      
+      @event = @timeslot.act.event
       
       respond_to do |format|
         if @timeslot.save
-          format.html { redirect_to act_path(@timeslot.act), notice: 'Performance slot was successfully created.' }
+          format.html { redirect_to act_path(@timeslot.act, event: @event), notice: 'Performance slot was successfully created.' }
           # format.json { render :show, status: :created, location: @recipe }
         else
           format.html { render :new }
@@ -38,17 +38,19 @@ class TimeslotsController < ContentController
 
     def edit 
       @timeslot = Timeslot.find(params[:id])
+      @event = @timeslot.act.event
     end
 
     def update
       timeslot = Timeslot.find(params[:id])
+      @event = timeslot.act.event
       timeslot.start_time = nil
       timeslot.end_time = nil
       timeslot.save
 
       respond_to do |format|
         if timeslot.update(timeslot_params)
-          format.html { redirect_to act_path(timeslot.act), notice: 'Performance slot was successfully updated.' }
+          format.html { redirect_to act_path(timeslot.act, event: @event), notice: 'Performance slot was successfully updated.' }
           # format.json { render :show, status: :created, location: @recipe }
         else
           format.html { render :new }
@@ -61,8 +63,9 @@ class TimeslotsController < ContentController
 
     def destroy
       timeslot = Timeslot.find(params[:id])
+      @event = timeslot.act.event
       timeslot.destroy
-      redirect_to(acts_path)
+      redirect_to(acts_path(event: @event))
     end
 
 
