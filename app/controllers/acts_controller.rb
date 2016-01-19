@@ -16,6 +16,7 @@ class ActsController < EventsController
   end
 
   def new
+    @event = Event.find(params[:event_id])
     @act = Act.new(event_id: @event.id)
     @keywords = Keyword.all
   end
@@ -25,7 +26,7 @@ class ActsController < EventsController
     @event = @act.event
     respond_to do |format|
       if @act.save
-        format.html { redirect_to act_path(@act, event: @event), notice: 'Act was successfully created.' }
+        format.html { redirect_to event_act_path(@event, @act), notice: 'Act was successfully created.' }
         # format.json { render :show, status: :created, location: @recipe }
       else
         format.html { render :new }
@@ -48,14 +49,14 @@ class ActsController < EventsController
     keyword = Keyword.find(params[:act][:keyword_ids]) 
     act.keywords = keyword
     @event = act.event
-    redirect_to act_path(act, event: @event)
+    redirect_to event_act_path(@event, act)
   end
 
   def destroy
     act = Act.find(params[:id])
     @event = act.event
     act.destroy
-    redirect_to(acts_path(event: @event))
+    redirect_to(event_acts_path(@event))
   end
 
 

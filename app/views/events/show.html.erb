@@ -4,6 +4,7 @@
     <li class="date"><h1>Saturday</h1>June 11th</li>
     <li class="date"><h1>Sunday</h1>June 12th</li>
     <br><br>
+
     <% @event.venues.each do |venue| %>
 
 
@@ -24,7 +25,7 @@
 
       <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
       <div class="each-time">
-        <% if timeslot.act.headline_image != nil && timeslot.act.headline_image != "" %>
+        <% if timeslot.act.headline_image.present? %>
         <%= link_to image_tag(timeslot.act.headline_image, class: "timetable_image"), event_act_path(@event, timeslot.act) %><br>
         <% else %>
         <h3><%= link_to timeslot.act.name, event_act_path(@event, timeslot.act) %></h3>

@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_filter :set_theme, except: :index
+  before_filter :set_theme
 
   before_action :authenticate_user!, except: :index
 
@@ -36,8 +36,10 @@ class EventsController < ApplicationController
   def set_theme
     if params[:event_id]
     event = Event.find(params[:event_id])
-  else
+  elsif params[:id]
     event = Event.find(params[:id])
+  else
+    return
 end
     theme = event.theme
     prepend_view_path "app/themes/#{theme}"
