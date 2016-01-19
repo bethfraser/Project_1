@@ -25,7 +25,7 @@
 <header>
 
 <nav>
-<%= link_to 'Home', '../../event/1/home' %>
+<%= link_to 'Home', "../../event/#{@event.id}/home" %>
 
 </nav>
 
@@ -44,7 +44,7 @@
 </header>
 
 <div class="logo">
-<%= link_to 'BORDERS FEST', event_path(1) %>
+<%= link_to "#{@event.name}", event_path(@event) %>
 </div>
 
 
@@ -67,7 +67,7 @@
 <%= link_to 'Add Stage', new_venue_path %> /
 <% end %>
 <% if can? :update, Event %>
-<%= link_to 'Edit Event', 'events/1/edit' %> /
+<%= link_to 'Edit Event', "../../events/#{@event.id}/edit" %> /
 <% end %>
 <% if can? :create, Keyword %>
 <%= link_to 'Manage Keywords', keywords_path %><br>

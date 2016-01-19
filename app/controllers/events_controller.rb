@@ -4,7 +4,7 @@ class EventsController < ContentController
 
   def index
     @events = Event.all
-    render :layout => false
+    render layout: false
   end
 
   def show

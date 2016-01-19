@@ -21,7 +21,7 @@
 <header>
 
 <nav>
-<%= link_to 'Home', 'event/1/home' %>
+<%= link_to 'Home', '../../event/1/home' %>
 
 </nav>
 
@@ -63,7 +63,7 @@
 <%= link_to 'Add Stage', new_venue_path %> /
 <% end %>
 <% if can? :update, Event %>
-<%= link_to 'Edit Event', 'events/1/edit' %> /
+<%= link_to 'Edit Event', '../../events/1/edit' %> /
 <% end %>
 <% if can? :create, Keyword %>
 <%= link_to 'Manage Keywords', keywords_path %><br>
