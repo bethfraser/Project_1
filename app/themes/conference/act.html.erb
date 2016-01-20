@@ -1,0 +1,73 @@
+<h2><%= @act.name %></h2>
+<div class="act-main">
+<% if @act.act_image %>
+<%= image_tag(@act.act_image, class: "act-image") %><br>
+<% end %>
+<%= @act.html %><br><br>
+</div>
+<div class="act-details">
+
+<% act_timeslots = @act.timeslots.all %>
+<% bookings = act_timeslots.map { |t| t.bookings } %>
+<% bookings = bookings.flatten %>
+<% users = bookings.map { |b| b.user.user_image.thumb.url } %>
+<% users.uniq! %>
+
+<% if users != [] %>
+<h4>People going to see this act:</h4>
+<% users.each do |user| %>
+<%= image_tag(user, class: "user-image-thumb") %> 
+<% end %>
+<br><br>
+<% end %>
+
+
+<h4>Tags:</h4>
+<% @act.keywords.each do |keyword| %>
+- <%= link_to keyword.name, keyword_path(keyword) %>
+<% end %><br><br>
+
+<h4>Times:</h4>
+
+<% @act.timeslots.order(:start_time).each do |timeslot| %>
+<%= timeslot.start_time.strftime("%A %l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %> 
+
+<% if can? :update, Timeslot %><%= link_to 'Edit', edit_timeslot_path(timeslot) %> - 
+<% end %>
+<% if can? :delete, Timeslot %>
+<%= link_to 'Delete', timeslot_path(timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %>
+<% end %>
+
+<%= form_for(@booking) do |f| %> 
+<% if @booking.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this act from being saved:</h2>
+
+  <ul>
+    <% @booking.errors.full_messages.each do |message| %>
+    <li><%= message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+<%= f.hidden_field :user_id, value: current_user.id %>
+<%= f.hidden_field :timeslot_id, value: timeslot.id %>
+<%= f.submit 'Add to My Schedule', class: "add-button" %>
+<% end %><br>
+
+<% end %>
+<br>
+<%= link_to 'Back', :back %>
+</div>
+<br><br>
+<% if can? :update, Act %>
+<%= link_to "Edit Act Profile", edit_act_path(@act) %> - 
+<% end %>
+<% if can? :create, Timeslot %>
+<%= link_to "Add Performance Times", {:controller => "timeslots", :action => "new", :id => @act.id } %> 
+<% end %>
+
+
+
+
+

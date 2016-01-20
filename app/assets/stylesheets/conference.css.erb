@@ -1,0 +1,548 @@
+/********** UNIVERSAL STYLES **********/
+
+header, .main {
+  padding: 10px 20px;
+}
+
+* {
+  font-family: 'Montserrat', 'Helvetica', sans-serif;
+}
+
+html {
+  font-size: 16px;
+}
+
+
+.main, footer {
+  font-size: 3rem;
+}
+
+.main, body {
+  background-color: #ededed;
+  color: #444;
+}
+
+footer {
+  text-align: center;
+  font-size: 2.8em;
+}
+
+h4 {
+  margin: 5px 0;
+}
+
+
+/********** HEADER **********/
+
+header {
+  height: 60px;
+  font-size: 3em;  
+}
+
+header, footer {
+  background-color: #333;
+  line-height: 60px;
+  color: #fff;
+}
+
+header a, footer a {
+  color: white;
+  text-decoration: none;
+}
+
+.login {
+  float: right;
+  display: inline-block;
+}
+
+nav {
+  float: left;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+p {
+  margin: 0;
+}
+
+/********** FOOTER **********/
+
+html, body {
+  height: 100%;
+}
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+  margin-bottom: -60px; 
+  margin-left: -1px;
+  margin-right: -1px;
+}
+.page-wrap::after {
+  content: " ";
+  display: block;
+}
+footer, .page-wrap::after {
+  height: 60px; 
+}
+
+footer {
+  text-align: center;
+  width: 100%;
+
+}
+
+/********** NAVIGATION **********/
+
+.nav-buttons {
+  font-size: 4rem;
+  text-align: center;
+  margin: 60px 0 20px 0;
+}
+
+.nav-buttons a {
+  font-size: 5rem;
+  display: inline-block;
+  margin-bottom: 50px;
+  width: 75%;
+  background-color: #89bdd3;
+  padding: 20px;
+  text-decoration: none;
+  border-radius: 30px;
+  color: white !important;
+  font-weight: normal !important;
+}
+
+.nav-buttons a:last-child {
+  margin-bottom: 0px;
+}
+
+.logo {
+  text-align: center;
+  background-image: url("https://s3.amazonaws.com/StartupStockPhotos/20140808_StartupStockPhotos/100.jpg");
+  background-size: cover;
+  background-position: center;
+
+}
+
+.logo a {
+  font-size: 8rem;
+  color: white;
+  text-decoration: none;
+  text-shadow: 3px 3px 3px black;
+}
+
+.description {
+  font-size: 3.5rem;
+  text-shadow: none;
+  background:rgba(0,0,0,0.5);
+  color: white;
+  padding: 5px;
+  margin: 0;
+}
+
+/********** INDEX PAGE **********/
+
+.home-box {
+  text-align: center;
+}
+
+
+.mobile-lineup {
+
+}
+
+.big-lineup {
+  display:none;
+}
+
+/**** MAIN SECTION ******/
+
+.main a {
+  color:  #57B59B;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.main a:hover {
+  color: black;
+}
+
+@media all and (min-device-width: 750px) and (min-width: 950px) {
+  .mobile-lineup {
+    display:none;
+  }
+
+  .big-lineup {
+    display:inline;
+  }
+
+  ul.user-days li {
+    width: 25%;
+    display: inline-block;
+    vertical-align: top;
+    padding: 1px;
+  }
+
+  .schedule, .unschedule {
+    width: 26px;
+    height: 26px;
+    vertical-align: middle;
+  }
+
+  .time-hover {
+    line-height: 26px;
+  }
+
+
+}
+
+@media screen and (min-device-width: 750px) and (min-width: 750px) {
+
+  html {
+    font-size: 6px;
+  }
+
+  header {
+    height: 30px;
+    line-height: 30px;
+    font-size: 3em;
+  }
+
+  .logo a {
+    font-size: 70px;
+  }
+
+  .main {
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .nav-buttons {
+    width: 100%;
+    margin: 0 0;
+  }
+
+  .nav-buttons a {
+    width: 40%;
+    margin: 20px 10px;
+    box-sizing: border-box;
+    font-size: 4rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    background-color: #E04445;
+    text-decoration: none;
+    text-transform: uppercase;
+    border-radius: 0;
+    color: white !important;
+    font-weight: normal !important;
+  }
+
+  .nav-buttons a:hover {
+    background-color: #F79405;
+  }
+
+  img.act-image {
+    max-width: 40%;
+    float: right;
+    margin: 20px;
+    border-radius: 25px;
+
+  }
+
+  .box {
+    border: 0;
+    width: 40%;
+    border-radius: 0;
+    margin: 0;
+    display: inline-block;
+    font-size: 3rem;
+    background-color: #ededed;
+    height: 100px;
+    margin-right: -4px;
+    box-sizing: border-box;
+  }
+
+  .home-box {
+    margin-right: -4px;
+    width: 100%;
+    display: inline-block;
+    background-color: #444;
+  }
+
+  .home-box a {
+    width: 50%;
+    margin: 0;
+    text-shadow: none;
+    font-size: 3rem;
+    padding: 4px 90px;
+    text-decoration: none;
+    line-height: 50px;
+    color: white !important;
+    margin-right: -4px;
+    text-transform: uppercase;
+  }
+
+  .home-box a:hover {
+    color: #F79405 !important;
+  }
+
+ 
+
+
+}
+
+
+
+/********** ACTS PAGE **********/
+
+form {
+
+}
+
+.each-time a {
+  color:black;
+}
+
+.each-time:first-child a {
+  font-size: 2em;
+  text-transform: capitalize;
+}
+
+.each-time a {
+  font-size: 1.5em;
+}
+
+.filter select  {
+ background: transparent;
+ width: 340px;
+ padding: 15px;
+ font-size: 3.5rem;
+ font-family: 'Montserrat';
+ line-height: 3rem;
+ border: 0;
+ border-radius: 0;
+ /*-webkit-appearance: none;*/
+
+}
+
+.filter {
+  font-family: 'Montserrat';
+  width: 350px;
+  overflow: hidden;
+  background: #ddd;
+  border: 0px solid #fff;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: 10px;
+}
+
+.filter-button {
+  padding: 5.5px;
+  font-size: 3rem;
+  font-family: 'Montserrat';
+  line-height: 3rem;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0;
+  color: white;
+  background-color: grey;
+  margin-top: 10px;
+}
+
+
+/**** LINEUP and SCHEDULE PAGE ******/
+.venue {
+  font-size: 2.5em;
+  font-weight: bold;
+  border-bottom: 2px solid grey;
+  border-top: 2px solid grey;
+  margin-bottom: 20px;
+}
+
+li.venue_name {
+  width: 100%;
+  text-align: center;
+  font-size: 2em;
+  list-style: none;
+}
+
+span.venue_name_text {
+  display: inline-block;
+  width: 75%;
+  border-bottom: 1px solid lightgrey; 
+  margin-bottom: 20px; 
+}
+
+.field_with_errors {
+  display: inline-block;
+  color: red;
+}
+
+.days li, li.date {
+  width: 25%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1px;
+
+}
+
+.user-days li {
+  width: 100%;
+  display: inline-block;
+  vertical-align: top;
+  padding: 1px;
+}
+
+ul.days, ul.user-days {
+  text-align: center;
+}
+
+
+ul {
+  display: inline-block;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+ul.timetable {
+  margin: 0 auto;
+  text-align: center;
+  padding: 0;
+}
+
+
+.date {
+  font-size: 3rem;
+}
+
+.date h1 {
+  font-size: 8rem;
+  margin: 1rem;
+}
+
+.day-timetable {
+  margin: 0 auto;
+  max-width: 85%;
+  text-align: center;
+}
+
+.each-act:first-child {
+  font-weight:bold;
+}
+
+span.time-hover {
+  display: none;
+  font-size: 2.5rem;
+}
+
+.each-time:hover  span {
+  display: inline-block;
+}
+
+.lineup {
+  font-size: 2rem;
+}
+
+/*** DAY PAGES NAVIGATION ****/
+
+.lineup-nav div {
+  display: inline-block;
+}
+
+.lineup-nav {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.lineup-nav a {
+  text-decoration: none;
+  padding: 10px;
+  border-radius: 25px;
+  background-color:#67bde2;
+  color: white;
+}
+
+.selected a {
+  background-color: grey;
+}
+
+/*** ADD TO SCHEDULE STARS ****/
+
+
+.schedule, .unschedule {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #ededed;
+  border: 0;
+  padding: 0;
+  min-width: 36px;
+  height: 36px;
+}
+
+.schedule:hover {
+  background-image: url(<%= asset_path 'rate.png' %>);
+}
+
+.schedule {
+  background-image: url(<%= asset_path 'bookmark45.png' %>);
+}
+
+.unschedule {
+  background-image: url(<%= asset_path 'rate.png' %>);
+}
+
+.unschedule:hover {
+  background-image: url(<%= asset_path 'bookmark45.png' %>);
+}
+
+.schedule_form, form.button_to {
+  display: inline-block;
+}
+
+.timetable_image {
+  width: 75%;
+}
+
+/******* ACT PROFILES *******/
+
+.add-button {
+  color: #be332a;
+  background: none;
+  border: 0;
+  font-family: 'Montserrat';
+  font-weight: bold;
+}
+
+.add-button:hover {
+  color: black;
+}
+
+.act-image {
+  max-width: 80%;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  border-radius: 25px;
+}
+
+.act-main {
+  padding-left: 20px;
+}
+
+.act-details {
+  display: block;
+  clear: both;
+  padding-left: 20px;
+}
+
+
+/***** USER IMAGES ******/
+
+.user-image-thumb {
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.user-image-medium {
+  border-radius: 25px;
+}

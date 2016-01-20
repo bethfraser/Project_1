@@ -28,12 +28,25 @@ class EventsController < ApplicationController
 
   def home
     @event = Event.find(params[:id])
+
+    render template: template_to_render
   end
 
 
   def edit 
     @event = Event.find(params[:id])
   end
+
+  def new 
+    @event = Event.new
+    render layout: false
+  end
+
+  def create
+    Event.create(event_params)
+    redirect_to events_path
+  end
+
 
   def update
     event = Event.find(params[:id])
@@ -43,6 +56,14 @@ class EventsController < ApplicationController
 
   private
 
+    def template_to_render
+      if template_exists?("../../themes/#{@event.theme}/home")
+        "../../themes/#{@event.theme}/home"
+      else
+        "/events/home"
+      end
+    end
+
   def set_theme
     if params[:event_id]
     event = Event.find(params[:event_id])
@@ -50,7 +71,7 @@ class EventsController < ApplicationController
     event = Event.find(params[:id])
   else
     return
-end
+  end
     theme = event.theme
     prepend_view_path "app/themes/#{theme}"
     self.class.layout "../../themes/#{theme}/layout"

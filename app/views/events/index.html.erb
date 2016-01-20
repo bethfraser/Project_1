@@ -1,3 +1,13 @@
+<style>
+  body {
+    font-family: Helvetica;
+    padding: 30px;
+  }
+  a {
+    color: navy;
+  }
+</style>
+
 <h1> Event Listings </h1>
 
 <% @events.each do |event| %>
@@ -6,3 +16,5 @@
 <%= event.description %><br><br>
 
 <% end %>
+<br><br>
+<%= link_to "New Event", new_event_path %>

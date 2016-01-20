@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>EventApp</title>
+
+    <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= stylesheet_link_tag    'conference', media: 'all', 'data-turbolinks-track' => true %>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
+
+
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+
+
+  <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="gmaps.js"></script>
+
+</head>
+<body>
+<div class="page-wrap">
+<header>
+
+<nav>
+<%= link_to 'Home', controller: :events, action: :home, id: @event.id %>
+
+</nav>
+
+  <div class="login">
+    <% if current_user %>
+    <%= current_user.name %> | 
+    <%= link_to 'Profile', user_path(current_user, event_id: @event.id) %> | 
+    <%= link_to 'Log Out', destroy_user_session_path(event_id: @event.id), method: :delete %>
+    <% else %>
+    <%= link_to 'Sign In', new_user_session_path(event_id: @event.id) %> | 
+    <%= link_to 'Register', new_user_registration_path(event_id: @event.id) %>
+    <% end %>
+  </div>
+
+
+</header>
+
+<div class="logo"><br>
+<%= link_to "#{@event.name}", event_path(@event) %><br><br>
+<div class="description">
+<%= @event.description %>
+</div><br>
+</div>
+
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+<section class="home-box">
+  
+<%= link_to 'Acts', event_acts_path(@event) %><%= link_to 'Stages', event_venues_path(@event) %>
+<%= link_to 'News', '/news' %>
+<%= link_to 'Info', events_info_path(id: @event.id) %>
+
+
+</section>
+<div class="nav-buttons">
+  <%= link_to 'My Schedule', users_path(event_id: @event.id) %>
+  <span class="mobile-lineup">
+  <%= link_to 'Full Lineup', event_day_path(@event, @event.start_date.day) %>
+  </span>
+  <span class="big-lineup">
+  <%= link_to 'Full Lineup', event_path(@event) %>
+  </span>
+  </div>
+  
+  <section class="main">
+<%= yield %>
+
+</section>
+</div>
+<footer>
+<%= link_to 'Acts A-Z', event_acts_path(@event) %> / 
+<%= link_to 'Stages', event_venues_path(@event) %>
+<% if can? :create, Act %>
+ / <%= link_to 'Add Act', new_event_act_path(@event) %> /
+<% end %>
+<% if can? :create, Venue %>
+<%= link_to 'Add Stage', new_event_venue_path(@event) %> /
+<% end %>
+<% if can? :update, Event %>
+<%= link_to 'Edit Event', "../../events/#{@event.id}/edit" %> /
+<% end %>
+<% if can? :create, Keyword %>
+<%= link_to 'Manage Keywords', event_keywords_path(@event) %><br>
+<% end %>
+</footer>
+</body>
+</html>
