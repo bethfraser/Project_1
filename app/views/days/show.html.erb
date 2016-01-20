@@ -1,14 +1,14 @@
 
 <div class="lineup-nav">
-<div class=<%= "selected" if current_page?('/days/10') %>>
-  <%= link_to 'Friday', day_path(10) %>
+
+<% @date_range.each do |date| %>
+<div class=<%= "selected" if current_page?("/events/#{@event.id}/days/#{date.day}") %>>
+  <%= link_to date.strftime("%A"), event_day_path(@event, date.day) %>
 </div>
-<div class=<%= "selected" if current_page?('/days/11') %>>
-  <%= link_to 'Saturday', day_path(11) %>
-</div>
-<div class=<%= "selected" if current_page?('/days/12') %>>
-  <%= link_to 'Sunday', day_path(12) %>
-</div>
+<% end %>
+
+
+<br><br>
 
 </div>
 
@@ -29,7 +29,7 @@
     <div class="acts">
     <% venues.sort_by(&:start_time).reverse.each do |timeslot| %>
       <div class="each-act">
-      <% if timeslot.act.headline_image != "" %>
+      <% if timeslot.act.headline_image.present? %>
       <%= image_tag(timeslot.act.headline_image, class: "timetable_image") %>
       <% else %>
       <%= timeslot.act.name %>

@@ -2,7 +2,7 @@
 
   <%= link_to 'My Schedule', users_path(event_id: @event.id) %>
   <span class="mobile-lineup">
-  <%= link_to 'Full Lineup', event_day_path(@event, 10) %>
+  <%= link_to 'Full Lineup', event_day_path(@event, @event.start_date.day) %>
   </span>
   <span class="big-lineup">
   <%= link_to 'Full Lineup', event_path(@event) %>
