@@ -6,7 +6,8 @@ class ActsController < EventsController
   def index
     @event = Event.find(params[:event_id])
     @acts = @event.acts.all.order(:name)
-    @keywords = Keyword.all
+    @keywords = Keyword.all.select {|k| k.acts.any?{|a| a.event == @event }}
+
   end
 
   def show 
@@ -23,6 +24,9 @@ class ActsController < EventsController
 
   def create 
     @act = Act.new(act_params)
+    params[:act][:keyword_ids] ||= []
+    keyword = Keyword.find(params[:act][:keyword_ids]) 
+    @act.keywords = keyword
     @event = @act.event
     respond_to do |format|
       if @act.save

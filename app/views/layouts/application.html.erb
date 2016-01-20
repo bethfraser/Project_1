@@ -2,9 +2,9 @@
 <html>
 <head>
   <title>EventApp</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link rel="stylesheet" type="text/css" href="normalize.css">
-  <link rel="stylesheet" type="text/css" href="style.css.erb">
+  <%= stylesheet_link_tag    'normalize', media: 'all', 'data-turbolinks-track' => true %>
+
+<%= stylesheet_link_tag    'style', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Arvo:400,700,400italic|Caveat+Brush' rel='stylesheet' type='text/css'>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -21,13 +21,13 @@
 <header>
 
 <nav>
-<%= link_to 'Home', '../../event/1/home' %>
+<%= link_to 'Home', controller: :events, action: :home, id: @event.id %>
 </nav>
 
   <div class="login">
     <% if current_user %>
     <%= current_user.name %> | 
-    <%= link_to 'Profile', user_path(current_user) %> | 
+    <%= link_to 'Profile', user_path(current_user, event_id: @event.id) %> | 
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
     <% else %>
     <%= link_to 'Sign In', new_user_session_path %> | 
@@ -39,7 +39,7 @@
 </header>
 
 <div class="logo">
-<%= link_to 'BORDERS FEST', event_path(1) %>
+<%= link_to "#{@event.name.upcase}", event_path(@event) %>
 </div>
 
 
@@ -47,23 +47,25 @@
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
+
 <%= yield %>
+
 </section>
 </div>
 <footer>
-<%= link_to 'Acts A-Z', acts_path %> / 
-<%= link_to 'Stages', venues_path %>
+<%= link_to 'Acts A-Z', event_acts_path(@event) %> / 
+<%= link_to 'Stages', event_venues_path(@event) %>
 <% if can? :create, Act %>
- / <%= link_to 'Add Act', new_act_path %> /
+ / <%= link_to 'Add Act', new_event_act_path(@event) %> /
 <% end %>
 <% if can? :create, Venue %>
-<%= link_to 'Add Stage', new_venue_path %> /
+<%= link_to 'Add Stage', new_event_venue_path(@event) %> /
 <% end %>
 <% if can? :update, Event %>
-<%= link_to 'Edit Event', '/events/1/edit' %> /
+<%= link_to 'Edit Event', "../../events/#{@event.id}/edit" %> /
 <% end %>
 <% if can? :create, Keyword %>
-<%= link_to 'Manage Keywords', keywords_path %><br>
+<%= link_to 'Manage Keywords', event_keywords_path(@event) %><br>
 <% end %>
 </footer>
 </body>

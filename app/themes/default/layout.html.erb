@@ -25,14 +25,14 @@
 <header>
 
 <nav>
-<%= link_to 'Home', "../../events/#{@event.id}/home" %>
+<%= link_to 'Home', controller: :events, action: :home, id: @event.id %>
 
 </nav>
 
   <div class="login">
     <% if current_user %>
     <%= current_user.name %> | 
-    <%= link_to 'Profile', user_path(current_user) %> | 
+    <%= link_to 'Profile', user_path(current_user, event_id: @event.id) %> | 
     <%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
     <% else %>
     <%= link_to 'Sign In', new_user_session_path %> | 

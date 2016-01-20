@@ -11,8 +11,8 @@ Rails.application.routes.draw do
   resources :acts
   resources :venues
   resources :timeslots
-  resources :keywords
   resources :days
+  resources :keywords
 end
 
 

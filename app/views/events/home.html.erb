@@ -1,6 +1,6 @@
 <div class="nav-buttons">
 
-  <%= link_to 'My Schedule', users_path %>
+  <%= link_to 'My Schedule', users_path(event_id: @event.id) %>
   <span class="mobile-lineup">
   <%= link_to 'Full Lineup', event_day_path(@event, 10) %>
   </span>
@@ -15,7 +15,7 @@
 </section>
 <section class="home-box">
 <div class="box box-3"><%= link_to 'News', '/news' %></div>
-<div class="box box-4"><%= link_to 'Info', '/events/info' %></div>
+<div class="box box-4"><%= link_to 'Info', events_info_path(id: @event.id) %></div>
 
 
 </section>

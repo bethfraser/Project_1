@@ -10,10 +10,20 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find(params[:id])
+
+    require 'date'
+
+    date_from  = @event.start_date
+    date_to    = @event.end_date
+    @date_range = date_from..date_to
+
+    @days = @date_range.map(&:mday)
+
     @booking = Booking.new
   end
 
   def info
+    @event = Event.find(params[:id])
   end
 
   def home

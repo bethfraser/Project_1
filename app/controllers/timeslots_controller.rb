@@ -8,6 +8,7 @@ class TimeslotsController < EventsController
     end
 
     def new
+      @event = Event.find(params[:event_id])
       @timeslot = Timeslot.new
       if params[:id]
       @act = Act.find(params[:id])
@@ -27,7 +28,7 @@ class TimeslotsController < EventsController
       
       respond_to do |format|
         if @timeslot.save
-          format.html { redirect_to act_path(@timeslot.act, event: @event), notice: 'Performance slot was successfully created.' }
+          format.html { redirect_to event_act_path(@event, @timeslot.act), notice: 'Performance slot was successfully created.' }
           # format.json { render :show, status: :created, location: @recipe }
         else
           format.html { render :new }
@@ -50,7 +51,7 @@ class TimeslotsController < EventsController
 
       respond_to do |format|
         if timeslot.update(timeslot_params)
-          format.html { redirect_to act_path(timeslot.act, event: @event), notice: 'Performance slot was successfully updated.' }
+          format.html { redirect_to event_act_path(@event, timeslot.act), notice: 'Performance slot was successfully updated.' }
           # format.json { render :show, status: :created, location: @recipe }
         else
           format.html { render :new }
@@ -65,7 +66,7 @@ class TimeslotsController < EventsController
       timeslot = Timeslot.find(params[:id])
       @event = timeslot.act.event
       timeslot.destroy
-      redirect_to(acts_path(event: @event))
+      redirect_to(event_acts_path(@event))
     end
 
 

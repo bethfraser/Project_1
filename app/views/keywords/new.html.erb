@@ -1,5 +1,5 @@
 <h1>Add Keyword</h1>
-<%= form_for(@keyword) do |f| %>
+<%= form_for([@event, @keyword]) do |f| %>
 <%= f.label :name %><br>
 <%= f.text_field :name %><br>
 <%= f.submit %>

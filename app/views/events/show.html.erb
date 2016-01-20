@@ -1,17 +1,26 @@
 <section class="lineup">
   <ul class="timetable">
-    <li class="date"><h1>Friday</h1>June 10th</li>
-    <li class="date"><h1>Saturday</h1>June 11th</li>
-    <li class="date"><h1>Sunday</h1>June 12th</li>
+    <% @date_range.each do |date| %>
+    <li class="date"><h1><%= date.strftime("%A") %></h1><%= date.strftime("%B #{date.day.ordinalize}") %></li>
+    <% end %>
     <br><br>
 
     <% @event.venues.each do |venue| %>
 
+    <% days_list = [] %>
 
-    <% fri = venue.timeslots.select { |t| t.start_time.day == 10 } %>
-    <% sat = venue.timeslots.select { |t| t.start_time.day == 11 } %>
-    <% sun = venue.timeslots.select { |t| t.start_time.day == 12 } %>
-    <% days = [fri, sat, sun] %>
+    <% @date_range.each do |date| %>
+
+    <% collection = venue.timeslots.select { |t| t.start_time.day == date.day } %>
+    <% days_list << collection %>
+
+    <% end %>
+
+
+<!--     <%# fri = venue.timeslots.select { |t| t.start_time.day == 10 } %>
+    <%# sat = venue.timeslots.select { |t| t.start_time.day == 11 } %>
+    <%# sun = venue.timeslots.select { |t| t.start_time.day == 12 } %>
+    <%# days = [fri, sat, sun] %> -->
     
 
     <li class="venue_name">
@@ -21,7 +30,7 @@
   </ul>
 
   <ul class="days">
-    <li><% days.each do |day| %>
+    <li><% days_list.each do |day| %>
 
       <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
       <div class="each-time">

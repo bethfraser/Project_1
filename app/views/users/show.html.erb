@@ -1,6 +1,9 @@
 <% if @user == current_user %>
-<%= link_to 'Edit My Profile', edit_user_registration_path(@user) %>
+<%= link_to 'Edit My Profile', edit_user_registration_path(@user, event_id: @event.id) %><br>
+
+<%= link_to 'My Schedule', users_path(event_id: @event.id) %>
 <% end %>
+
 
 <h2><%= @user.name %></h2>
 <% if @user.role %>

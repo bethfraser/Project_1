@@ -6,6 +6,7 @@ gem 'cancancan'
 gem 'redcarpet'
 gem 'carrierwave'
 gem 'rmagick', '2.13.2', :require => 'RMagick'
+require 'active_support/core_ext/integer/inflections'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

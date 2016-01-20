@@ -1,21 +1,26 @@
 <h1>My Schedule</h1>
 
-    <% fri = @timeslots.select { |t| t.start_time.day == 10 } %>
-    <% sat = @timeslots.select { |t| t.start_time.day == 11 } %>
-    <% sun = @timeslots.select { |t| t.start_time.day == 12 } %>
-    <% days = {["Friday", "June 10th"] => fri, ["Saturday", "June 11th"] => sat, ["Sunday", "June 11th"] => sun} %>
+<% days_list = [] %>
+
+<% @date_range.each do |date| %>
+
+<% collection = [date, @bookings.select { |b| b.timeslot.start_time.day == date.day }] %>
+<% days_list << collection %>
+
+<% end %>
+
 
 <ul class="user-days">
-    <% days.each do |date, day| %>
+    <% days_list.each do |date, bookings| %>
     <li>
-    <span class="date"><h1><%= date.first %></h1><%= date.last %></span>
-    <% day.sort_by{|d| d.start_time}.reverse.each do |timeslot| %>
+    <span class="date"><h1><%= date.strftime("%A") %></h1><%= date.strftime("%B #{date.day.ordinalize}") %></span>
+    <% bookings.sort_by{|b| b.timeslot.start_time}.reverse.each do |booking| %>
     
-    <h3><%= link_to timeslot.act.name, act_path(timeslot.act) %></h3>
+    <h3><%= link_to booking.timeslot.act.name, event_act_path(@event, booking.timeslot.act) %></h3>
     
-      <%= timeslot.start_time.strftime("%l:%M %p") %> - <%= timeslot.end_time.strftime("%l:%M %p")  %>, <%= timeslot.venue.name %>
+      <%= booking.timeslot.start_time.strftime("%l:%M %p") %> - <%= booking.timeslot.end_time.strftime("%l:%M %p")  %>, <%= booking.timeslot.venue.name %>
 
-        <%= button_to '', booking_path(current_user.bookings.find_by_timeslot_id(timeslot.id)), method: :delete, class: "unschedule", title: "Remove from My Schedule" %>
+      <%= button_to '', booking_path(current_user.bookings.find_by_timeslot_id(booking.timeslot.id)), method: :delete, class: "unschedule", title: "Remove from My Schedule" %>
      
       <% end %>
       <br><br>
