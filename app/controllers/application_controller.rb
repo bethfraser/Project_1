@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_path, alert: "You cannot perform this action."
   end
+
+  def after_sign_out_path_for(resource_or_scope)
+    :back
+  end
+
+
+
 end

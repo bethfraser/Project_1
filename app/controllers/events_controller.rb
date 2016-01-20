@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
   before_filter :set_theme
 
-  before_action :authenticate_user!, except: :index
+  before_action :authenticate_user!, except: [:index, :home]
 
   def index
     @events = Event.all

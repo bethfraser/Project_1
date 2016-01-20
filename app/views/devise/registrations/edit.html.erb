@@ -36,6 +36,8 @@
     <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
     <%= f.password_field :current_password, autocomplete: "off" %>
   </div>
+  
+  <%= f.hidden_field :event_id, @event.id %>
 
   <div class="actions">
     <%= f.submit "Update" %>
