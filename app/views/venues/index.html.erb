@@ -1,4 +1,4 @@
-<h1>Stages</h1>
+<h1><%=@event.venue_alias%></h1>
 <% if can? :create, Venue %>
 <%= link_to 'Add Stage', new_event_venue_path(@event) %><br><br>
 <% end %>

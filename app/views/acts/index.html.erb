@@ -1,4 +1,4 @@
-<h1>Acts A-Z</h1>
+<h1><%=@event.act_alias%> A-Z</h1>
 <% if can? :create, Act %>
 <%= link_to 'Add Act', new_event_act_path %><br><br>
 <% end %>

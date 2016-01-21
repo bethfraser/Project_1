@@ -13,7 +13,7 @@
   <% end %>
   <% if can? :delete, Timeslot %>
   <%= link_to 'Delete', event_timeslot_path(@event, timeslot), method: :delete, data: {confirm: 'Are you sure you want to delete this time slot?'} %><br>
-  <% end %>
+  <% end %><br>
 <% end %>
 <br>
 <%= link_to 'Back', :back %>

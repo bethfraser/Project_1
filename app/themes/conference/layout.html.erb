@@ -56,7 +56,7 @@
 <p class="alert"><%= alert %></p>
 <section class="home-box">
   
-<%= link_to 'Acts', event_acts_path(@event) %><%= link_to 'Stages', event_venues_path(@event) %>
+<%= link_to @event.act_alias, event_acts_path(@event) %><%= link_to @event.venue_alias, event_venues_path(@event) %>
 <%= link_to 'News', '/news' %>
 <%= link_to 'Info', events_info_path(id: @event.id) %>
 
@@ -71,15 +71,15 @@
   <%= link_to 'Full Lineup', event_path(@event) %>
   </span>
   </div>
-  
+
   <section class="main">
 <%= yield %>
 
 </section>
 </div>
 <footer>
-<%= link_to 'Acts A-Z', event_acts_path(@event) %> / 
-<%= link_to 'Stages', event_venues_path(@event) %>
+<%= link_to "#{@event.act_alias} A-Z", event_acts_path(@event) %> / 
+<%= link_to @event.venue_alias, event_venues_path(@event) %>
 <% if can? :create, Act %>
  / <%= link_to 'Add Act', new_event_act_path(@event) %> /
 <% end %>

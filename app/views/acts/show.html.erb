@@ -16,7 +16,7 @@
 <% users.uniq! %>
 
 <% if users != [] %>
-<h4>People going to see this act:</h4>
+<h4>People going to see this:</h4>
 <% users.each do |user| %>
 <%= image_tag(user, class: "user-image-thumb") %> 
 <% end %>

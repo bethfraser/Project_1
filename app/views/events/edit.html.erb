@@ -11,6 +11,18 @@
 <%= f.label :description, 'Description' %><br>
 <%= f.text_area :description %><br>
 
+<%= f.label :act_alias, "Default term for 'acts'" %><br>
+<%= f.text_field :act_alias %><br>
+
+<%= f.label :venue_alias, "Default term for 'venues'" %><br>
+<%= f.text_field :venue_alias %><br>
+
+<%= f.label :start_date %><br>
+<%= f.date_select :start_date %><br>
+
+<%= f.label :end_date %><br>
+<%= f.date_select :end_date %><br>
+
 <%= f.label :theme %><br>
 <%= f.radio_button :theme, "default" %> Default<br>
 <%= f.radio_button :theme, "conference" %> Conference<br>
