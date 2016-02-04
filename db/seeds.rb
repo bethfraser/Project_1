@@ -1,7 +1,8 @@
 User.create!([
-  {email: "beth@email.com", encrypted_password: "$2a$10$OVy7xDkqsHZlXJmvVatPo.n5BzeJzuQOA1xVSwp1g99eNAtqBX15C", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 18, current_sign_in_at: "2016-01-13 14:19:40", last_sign_in_at: "2016-01-13 14:04:53", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Beth", role: "admin", user_image: "12250089_10153868876348319_130130965663377483_n.jpg"},
-  {email: "gary@email.com", encrypted_password: "$2a$10$KZtcDyWa1sspzOm0gsmLHuyMB2g8eqd/sHlT0D8Jk4TdZkFWo07Dy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 12, current_sign_in_at: "2016-01-13 14:13:33", last_sign_in_at: "2016-01-13 13:51:20", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Gary", role: nil, user_image: "gary.jpg"},
-  {email: "arthur@email.com", encrypted_password: "$2a$10$2dykpkKXFZ.1rrq/b8zPneeuR3IqmFd7HY/MXWPkLlSCdw3/eL98a", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-01-13 13:30:18", last_sign_in_at: "2016-01-13 13:30:18", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Arthur", role: nil, user_image: "arthurs-seat.jpg"}
+  {email: "beth@email.com", encrypted_password: "$2a$10$OVy7xDkqsHZlXJmvVatPo.n5BzeJzuQOA1xVSwp1g99eNAtqBX15C", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 42, current_sign_in_at: "2016-01-21 09:27:51", last_sign_in_at: "2016-01-20 17:10:59", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Beth", role: "admin", user_image: "12250089_10153868876348319_130130965663377483_n.jpg", login_code: nil},
+  {email: "gary@email.com", encrypted_password: "$2a$10$KZtcDyWa1sspzOm0gsmLHuyMB2g8eqd/sHlT0D8Jk4TdZkFWo07Dy", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 17, current_sign_in_at: "2016-01-20 17:07:19", last_sign_in_at: "2016-01-20 13:15:13", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Gary", role: nil, user_image: "gary.jpg", login_code: nil},
+  {email: "arthur@email.com", encrypted_password: "$2a$10$2dykpkKXFZ.1rrq/b8zPneeuR3IqmFd7HY/MXWPkLlSCdw3/eL98a", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-01-13 13:30:18", last_sign_in_at: "2016-01-13 13:30:18", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "Arthur", role: nil, user_image: "arthurs-seat.jpg", login_code: nil},
+  {email: "test@email.com", encrypted_password: "$2a$10$CM17xwqHm87.UftWbDL3t.R9futJ1S.oPZLGD0ndsUVmPNjQOhGH2", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-01-14 12:20:07", last_sign_in_at: "2016-01-14 12:20:07", current_sign_in_ip: "::1", last_sign_in_ip: "::1", name: "", role: nil, user_image: nil, login_code: "LOGINCODE5"}
 ])
 Act.create!([
   {name: "Metallica", act_image: "http://images1.mtv.com/uri/mgid:file:docroot:vh1.com:/sitewide/flipbooks/img/news/10_hottest_albums_september_08/05_81091189.jpg?enlarge=false&matte=true&matteColor=black&quality=0.85", description: "Metallica is an American heavy metal band formed in Los Angeles, California. Metallica was formed in 1981 when vocalist/guitarist James Hetfield responded to an advertisement posted by drummer Lars Ulrich in a local newspaper. The band's current line-up comprises founding members Hetfield and Ulrich, longtime lead guitarist Kirk Hammett and bassist Robert Trujillo.\r\n\r\nIn 2012, Metallica formed the independent record label Blackened Recordings and took full ownership of its albums and videos. As of 2015, the band is in production of its tenth studio album, slated to be released in 2016.\r\n\r\n<a href=\"https://metallica.com/\">Band website</a>", event_id: 1, headline_image: "https://upload.wikimedia.org/wikipedia/commons/b/b7/Metallica_logo.png"},
@@ -27,13 +28,21 @@ Act.create!([
   {name: "Deaf Havana", act_image: "", description: "", event_id: 1, headline_image: "http://static.tumblr.com/aa1cf8601869b922dfe50b874e6e7403/ovievvc/0y3mkyk3f/tumblr_static_deaf-havana-fools-and-worthless-liars-2776.png"},
   {name: "The Gaslight Anthem", act_image: "", description: "", event_id: 1, headline_image: "https://fanart.tv/fanart/music/f208f09e-b5b3-4b06-87cd-f7230fae17e3/hdmusiclogo/gaslight-anthem-the-516768bd847d7.png"},
   {name: "The XX", act_image: "", description: "", event_id: 1, headline_image: ""},
-  {name: "Vampire Weekend", act_image: "", description: "", event_id: 1, headline_image: ""}
+  {name: "Vampire Weekend", act_image: "", description: "", event_id: 1, headline_image: ""},
+  {name: "Rick Henry", act_image: "", description: "Rick wears some nice jumpers and knows a lot about CSS.", event_id: 2, headline_image: ""},
+  {name: "Jay Chetty", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "Beth Fraser", act_image: "", description: "Great lass.", event_id: 2, headline_image: ""},
+  {name: "Michael Pavling", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "Valerie Gibson", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "Keith Douglas", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "Nick Hill", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "Sky Su", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "Nevin Officer", act_image: "", description: "", event_id: 2, headline_image: ""},
+  {name: "RubyBot", act_image: "", description: "The one and only. ", event_id: 2, headline_image: ""}
 ])
 Act::HABTM_Keywords.create!([
-  {act_id: 1, keyword_id: 3},
   {act_id: 1, keyword_id: 2},
   {act_id: 2, keyword_id: 2},
-  {act_id: 1, keyword_id: 6},
   {act_id: 9, keyword_id: 4},
   {act_id: 12, keyword_id: 4},
   {act_id: 13, keyword_id: 4},
@@ -42,8 +51,6 @@ Act::HABTM_Keywords.create!([
   {act_id: 10, keyword_id: 2},
   {act_id: 2, keyword_id: 5},
   {act_id: 11, keyword_id: 2},
-  {act_id: 11, keyword_id: 3},
-  {act_id: 11, keyword_id: 7},
   {act_id: 18, keyword_id: 4},
   {act_id: 6, keyword_id: 2},
   {act_id: 24, keyword_id: 2},
@@ -62,14 +69,23 @@ Act::HABTM_Keywords.create!([
   {act_id: 16, keyword_id: 10},
   {act_id: 23, keyword_id: 4},
   {act_id: 22, keyword_id: 4},
-  {act_id: 2, keyword_id: 10}
+  {act_id: 2, keyword_id: 10},
+  {act_id: 32, keyword_id: 4},
+  {act_id: 33, keyword_id: 4},
+  {act_id: 33, keyword_id: 2},
+  {act_id: 35, keyword_id: 2},
+  {act_id: 1, keyword_id: 14},
+  {act_id: 32, keyword_id: 9},
+  {act_id: 38, keyword_id: 5},
+  {act_id: 28, keyword_id: 15},
+  {act_id: 28, keyword_id: 16},
+  {act_id: 28, keyword_id: 17},
+  {act_id: 40, keyword_id: 15},
+  {act_id: 41, keyword_id: 16},
+  {act_id: 42, keyword_id: 13},
+  {act_id: 42, keyword_id: 15}
 ])
 Booking.create!([
-  {user_id: 1, timeslot_id: 6},
-  {user_id: 1, timeslot_id: 15},
-  {user_id: 2, timeslot_id: 17},
-  {user_id: 1, timeslot_id: 32},
-  {user_id: 1, timeslot_id: 28},
   {user_id: 1, timeslot_id: 31},
   {user_id: 1, timeslot_id: 26},
   {user_id: 1, timeslot_id: 40},
@@ -77,30 +93,46 @@ Booking.create!([
   {user_id: 3, timeslot_id: 40},
   {user_id: 3, timeslot_id: 28},
   {user_id: 1, timeslot_id: 50},
-  {user_id: 1, timeslot_id: 52},
   {user_id: 1, timeslot_id: 51},
-  {user_id: 1, timeslot_id: 38}
+  {user_id: 1, timeslot_id: 38},
+  {user_id: 2, timeslot_id: 33},
+  {user_id: 2, timeslot_id: 54},
+  {user_id: 2, timeslot_id: 28},
+  {user_id: 2, timeslot_id: 43},
+  {user_id: 2, timeslot_id: 36},
+  {user_id: 1, timeslot_id: 28},
+  {user_id: 1, timeslot_id: 36},
+  {user_id: 1, timeslot_id: 59},
+  {user_id: 1, timeslot_id: 64},
+  {user_id: 1, timeslot_id: 61},
+  {user_id: 1, timeslot_id: 63},
+  {user_id: 2, timeslot_id: 61},
+  {user_id: 2, timeslot_id: 63},
+  {user_id: 2, timeslot_id: 62},
+  {user_id: 1, timeslot_id: 60},
+  {user_id: 1, timeslot_id: 67}
 ])
 Event.create!([
-  {name: "Borders Festival", location: "Galashiels, Scottish Borders", start_date: "2016-06-10", end_date: "2016-06-12", description: "The biggest music festival in the Borders area!"}
+  {name: "Borders Fest", location: "Galashiels, Scottish Borders", start_date: "2016-06-10", end_date: "2016-06-12", description: "The biggest music festival in the Borders area!", theme: "fields", act_alias: "Acts", venue_alias: "Stages"},
+  {name: "CodeClan Conference", location: "Edinburgh", start_date: "2016-08-12", end_date: "2016-08-14", description: "A tech conference in the heart of Edinburgh.", theme: "conference", act_alias: "Speakers", venue_alias: "Venues"}
 ])
 Keyword.create!([
   {name: "rock"},
-  {name: "metal"},
   {name: "comedy"},
   {name: "pop-punk"},
-  {name: "1980s"},
-  {name: "rap"},
   {name: "dance"},
   {name: "1990s"},
   {name: "2000s"},
-  {name: "folk"}
+  {name: "folk"},
+  {name: "rap"},
+  {name: "metal"},
+  {name: "ruby"},
+  {name: "javascript"},
+  {name: "CSS"}
 ])
 Keyword::HABTM_Acts.create!([
-  {act_id: 1, keyword_id: 3},
   {act_id: 1, keyword_id: 2},
   {act_id: 2, keyword_id: 2},
-  {act_id: 1, keyword_id: 6},
   {act_id: 9, keyword_id: 4},
   {act_id: 12, keyword_id: 4},
   {act_id: 13, keyword_id: 4},
@@ -109,8 +141,6 @@ Keyword::HABTM_Acts.create!([
   {act_id: 10, keyword_id: 2},
   {act_id: 2, keyword_id: 5},
   {act_id: 11, keyword_id: 2},
-  {act_id: 11, keyword_id: 3},
-  {act_id: 11, keyword_id: 7},
   {act_id: 18, keyword_id: 4},
   {act_id: 6, keyword_id: 2},
   {act_id: 24, keyword_id: 2},
@@ -129,7 +159,21 @@ Keyword::HABTM_Acts.create!([
   {act_id: 16, keyword_id: 10},
   {act_id: 23, keyword_id: 4},
   {act_id: 22, keyword_id: 4},
-  {act_id: 2, keyword_id: 10}
+  {act_id: 2, keyword_id: 10},
+  {act_id: 32, keyword_id: 4},
+  {act_id: 33, keyword_id: 4},
+  {act_id: 33, keyword_id: 2},
+  {act_id: 35, keyword_id: 2},
+  {act_id: 1, keyword_id: 14},
+  {act_id: 32, keyword_id: 9},
+  {act_id: 38, keyword_id: 5},
+  {act_id: 28, keyword_id: 15},
+  {act_id: 28, keyword_id: 16},
+  {act_id: 28, keyword_id: 17},
+  {act_id: 40, keyword_id: 15},
+  {act_id: 41, keyword_id: 16},
+  {act_id: 42, keyword_id: 13},
+  {act_id: 42, keyword_id: 15}
 ])
 Timeslot.create!([
   {venue_id: 5, act_id: 24, start_time: "2016-06-12 21:30:00", end_time: "2016-06-12 22:30:00", capacity: nil},
@@ -157,12 +201,23 @@ Timeslot.create!([
   {venue_id: 6, act_id: 9, start_time: "2016-06-10 14:00:00", end_time: "2016-06-10 15:00:00", capacity: 1},
   {venue_id: 6, act_id: 5, start_time: "2016-06-11 14:00:00", end_time: "2016-06-11 15:00:00", capacity: 1},
   {venue_id: 2, act_id: 26, start_time: "2016-06-10 18:00:00", end_time: "2016-06-10 19:00:00", capacity: nil},
-  {venue_id: 2, act_id: 27, start_time: "2016-06-11 18:00:00", end_time: "2016-06-11 19:00:00", capacity: nil}
+  {venue_id: 2, act_id: 27, start_time: "2016-06-11 18:00:00", end_time: "2016-06-11 19:00:00", capacity: nil},
+  {venue_id: 7, act_id: 32, start_time: "2016-08-13 13:00:00", end_time: "2016-08-13 14:00:00", capacity: nil},
+  {venue_id: 8, act_id: 28, start_time: "2016-08-12 10:15:00", end_time: "2016-08-12 11:15:00", capacity: nil},
+  {venue_id: 7, act_id: 35, start_time: "2016-08-12 14:25:00", end_time: "2016-08-12 15:25:00", capacity: nil},
+  {venue_id: 7, act_id: 36, start_time: "2016-08-14 13:00:00", end_time: "2016-08-14 14:00:00", capacity: nil},
+  {venue_id: 8, act_id: 37, start_time: "2016-08-13 10:00:00", end_time: "2016-08-13 11:00:00", capacity: nil},
+  {venue_id: 8, act_id: 33, start_time: "2016-08-14 14:00:00", end_time: "2016-08-14 15:00:00", capacity: nil},
+  {venue_id: 7, act_id: 40, start_time: "2016-08-12 10:00:00", end_time: "2016-08-12 11:00:00", capacity: nil},
+  {venue_id: 7, act_id: 41, start_time: "2016-08-13 12:00:00", end_time: "2016-08-13 12:45:00", capacity: nil},
+  {venue_id: 7, act_id: 42, start_time: "2016-08-14 21:00:00", end_time: "2016-08-14 22:00:00", capacity: nil}
 ])
 Venue.create!([
-  {name: "Main Stage", location: "Field 2", venue_image: "http://www.smash-uk.com/frf13/stages/images/stage-img4-1.jpg", description: "The biggest stage of the festival, where the headline acts play.", event_id: 1},
+  {name: "Main Stage", location: "Field 2", venue_image: "http://www.smash-uk.com/frf13/stages/images/stage-img4-1.jpg", description: "The biggest stage of the festival, where the headline acts play.\r\n\r\n", event_id: 1},
   {name: "Alternative Stage", location: "Field 3", venue_image: "", description: "The home of upcoming artists, presented by your favourite BBC radio hosts.", event_id: 1},
   {name: "Comedy Tent", location: "Field 2", venue_image: "", description: "Have a chuckle at some comedy acts here.", event_id: 1},
   {name: "Secret Stage", location: "", venue_image: "", description: "Secret gigs held here.", event_id: 1},
-  {name: "Signing Tent", location: "", venue_image: "", description: "Make a booking for the signing tent to meet your favourite bands and get their autographs. Be warned, places may be limited!", event_id: 1}
+  {name: "Signing Tent", location: "", venue_image: "", description: "Make a booking for the signing tent to meet your favourite bands and get their autographs. Be warned, places may be limited!", event_id: 1},
+  {name: "Goldfish Room", location: "", venue_image: "", description: "", event_id: 2},
+  {name: "Kitchen", location: "", venue_image: "", description: "", event_id: 2}
 ])

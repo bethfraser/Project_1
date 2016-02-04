@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
 
   get 'events/info'
-
   get 'events/:id/home', to: 'events#home'
-
   get 'keywords/filter', to: 'keywords#filter'
 
   devise_for :users, :controllers => { registrations: 'registrations', sessions: 'sessions' }
-  resources :events do
+
+resources :events do
   resources :acts
   resources :venues
   resources :timeslots
@@ -17,7 +16,6 @@ end
 
 
   resources :bookings
-
   resources :users
 
 
